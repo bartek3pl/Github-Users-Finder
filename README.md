@@ -1,8 +1,8 @@
 # Github User Finder
 
-## Type the username!
+## Just type the username of someone from Github and check out statistics and repositories in a simpler and more convenient form.
 
-### Just type the username of someone from Github and check out statistics and repositories in a simpler and more convenient form.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
