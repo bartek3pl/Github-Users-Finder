@@ -29,7 +29,9 @@ export const StyledRepository = styled(Repository)`
   width: 86%;
   height: 88px;
   margin: 20px auto;
-  
+  max-width: 650px;
+  will-change: auto;
+
   grid-template-areas:
    'logo name name name stars'
    'logo desc desc desc size';
@@ -46,7 +48,7 @@ export const Logo = styled.div`
   border: 2px solid #fff;
   color: #fff;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -62,7 +64,7 @@ export const Name = styled.div`
   grid-area: name;
   background: #fff;
   font-weight: 600;
-  padding: 5px 10px;
+  padding: 8px 10px;
   text-transform: uppercase;
   text-align: left;
   font-size: 22px;
@@ -85,6 +87,7 @@ export const Stars = styled.div`
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
   font-size: 32px;
+  padding-top: 2px;
 
   ${StyledRepository}:hover & {
     border-color: orange;
@@ -97,7 +100,7 @@ export const Desc = styled.div`
   font-weight: 300;
   font-size: 15px;
   text-align: left;
-  padding: 0px 10px;
+  padding: 2px 10px;
   border-bottom: 2px solid #fff;
 
   ${StyledRepository}:hover & {
@@ -125,8 +128,8 @@ export const Size = styled.div`
 `;
 
 export const TinyStar = styled.img`
-  width: 30px;
-  height: 30px;
-  padding-top: 5px;
+  width: 31px;
+  height: 31px;
+  padding-top: 9px;
   display: inline-block;
 `;

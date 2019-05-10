@@ -9,10 +9,10 @@ function kbToMb(size) {
 }
 
 function textShrink(text, type) {
-  if(type === "desc" && text !== null && text.length > 80) {
-    return text.slice(0, 80).toString() + "...";
-  } else if(type === "name" && text.length > 21) {
-    return text.slice(0, 21).toString() + "...";
+  if(type === "desc" && text !== null && text.length > 75) {
+    return text.slice(0, 75).toString() + "...";
+  } else if(type === "name" && text.length > 19) {
+    return text.slice(0, 19).toString() + "...";
   }
   return text;
 }
@@ -36,8 +36,10 @@ const Repo = (props) => {
           {repos[index] && textShrink(repos[index].description, "desc")}
         </Desc>
         <Size>
-          {repos[index] && <>{kbToMb(repos[index].size)} 
-            {<span style={{fontSize: '14px'}}> {" mb"}</span>}</>}
+          {repos[index] && <>
+            {kbToMb(repos[index].size)} 
+            {<span style={{fontSize: '14px'}}> {" mb"}</span>}
+          </>}
         </Size>
       </StyledRepository>
     </a>   

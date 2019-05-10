@@ -5,7 +5,7 @@ export const Input = posed.input({
   focusable: true,
 
   init: {
-    scale: 1,
+    scale: 0.95,
     y: 0,
     outlineColor: '#eee',
     transition: {
@@ -15,7 +15,7 @@ export const Input = posed.input({
   },
 
   focus: {
-    scale: 1.05,
+    scale: 1,
     y: 10,
     outlineColor: '#000',
     transition: {
@@ -27,10 +27,11 @@ export const Input = posed.input({
 });
 
 export const StyledInput = styled(Input)`
-  padding: 5px;
+  padding: 6px;
   outline: none;
   font-size: 36px;
   border: 1px solid #aaa;
   margin-bottom: 20px;
   outline: 1px solid #eee;
+  will-change: transform;
 `;

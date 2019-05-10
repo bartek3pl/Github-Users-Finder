@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     background: #eee;
     font-size: 20px;
+    filter: none;
   }
 
   a {

@@ -53,7 +53,7 @@ export const Login = styled.h3`
 export const BasicInfo = styled.p`
   margin: 0px;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
 `;
 

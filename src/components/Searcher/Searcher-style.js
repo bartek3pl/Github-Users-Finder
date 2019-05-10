@@ -28,6 +28,6 @@ export const ShowWrapper = posed(Wrapper)({
   },
 
   closed: {
-    y: '140%',
+    y: '180%',
   }
 })
