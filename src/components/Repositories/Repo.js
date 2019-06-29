@@ -75,7 +75,7 @@ class Repo extends Component {
   }
 
   render() {
-    const { repos, index } = this.props;
+    const { repos, index, login } = this.props;
     const { lastCommitDate, lastCommitDesc } = this.state;
 
     return (
@@ -172,9 +172,14 @@ class Repo extends Component {
                     {getDate(lastCommitDate)}
                   </Element>
 
-                  <BackButton>back</BackButton>
+                  <BackButton background={'orange'} border={'orange'}>Back</BackButton>
 
                 </NavLink>
+
+                <a href={`https://github.com/${login}`} target="_blank" rel="noopener noreferrer">
+                  <BackButton background={'#00e80f'} border={'#00e80f'}>Github</BackButton>
+                </a>
+  
               </Wrapper>
             </>
           }/>

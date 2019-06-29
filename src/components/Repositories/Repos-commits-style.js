@@ -26,10 +26,13 @@ export const ElemChild = styled(Element)`
 export const BackButton = styled.button`
   text-transform: uppercase;
   padding: 14px 28px;
+  margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 10px;
   outline: none;
   border: 2px solid #555;
   margin-top: 30px;
+  font-family: "Montserrat";
   font-size: 24px;
   color: #333;
   cursor: pointer;
@@ -40,8 +43,8 @@ export const BackButton = styled.button`
   &:hover {
     transform: scale(0.95);
     color: #fff;
-    background: orange;
-    border-color: orange;
+    background: ${props => props.background};
+    border-color: ${props => props.border};
   }
 
   &:active {

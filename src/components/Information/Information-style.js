@@ -48,6 +48,12 @@ export const Login = styled.h3`
   color: #fff;
   border-radius: 8px;
   padding: 2px 5px;
+  transition: all 0.2s ease;
+
+  &:hover{
+    color: orange;
+    transform: translateX(8px);
+  }
 `;
 
 export const BasicInfo = styled.p`
@@ -136,6 +142,11 @@ export const Avatar = styled.img`
   height: 250px;
   border: 1px solid #fff;
   margin-left: 20px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: orange;
+  }
 `;
 
 export const ShowAvatar = posed(Avatar)({

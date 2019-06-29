@@ -70,13 +70,15 @@ const Information = (props) => {
 
       <InformationBlock>
         <Info>
-          <ShowAvatar
-            pose={props.isLoaded? 'open' : 'closed'}
-            src={props.avatar? props.avatar : user} 
-            alt={props.fullname}
-          />    
+          <a href={`https://github.com/${props.login}`} target="_blank" rel="noopener noreferrer">
+            <ShowAvatar
+              pose={props.isLoaded? 'open' : 'closed'}
+              src={props.avatar? props.avatar : user} 
+              alt={props.fullname}
+            /> 
+          </a>   
           <BasicInfoWrapper>
-            <Login>
+            <Login as="a" href={`https://github.com/${props.login}`} target="_blank" rel="noreferrer">
               {props.login && checkLoginLength(props.login)}
             </Login>
             <ShowInformation pose={props.isLoaded? 'open' : 'closed'}>
