@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import posed from 'react-pose';
 
 export const Wrapper = styled.div`
   grid-area: repo;
