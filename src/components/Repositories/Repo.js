@@ -195,6 +195,10 @@ Repo.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]))),
+  index: PropTypes.number,
+  login: PropTypes.string,
+  lastCommitDate: PropTypes.string,
+  lastCommitDesc: PropTypes.string
 }
  
 export default Repo;

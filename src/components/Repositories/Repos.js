@@ -34,8 +34,7 @@ class Repos extends Component {
 
   render() {
          
-    const { login, reposNum, repos } = this.props;
-    const { isLoaded } = this.props;
+    const { login, reposNum, repos, isLoaded } = this.props;
 
     let Repos = [];
     for(let i = 0; i < reposNum; ++i) {
@@ -86,6 +85,7 @@ Repos.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]))),
+  isLoaded: PropTypes.bool
 }
  
 export default Repos;
