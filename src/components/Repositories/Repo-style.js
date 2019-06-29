@@ -5,7 +5,7 @@ export const Repository = posed.div({
   hoverable: true,
 
   init: {
-    scale: 1,
+    x: 0,
     transition: {
       type: 'tween',
       ease: 'easeOut',
@@ -14,7 +14,7 @@ export const Repository = posed.div({
   },
 
   hover: {
-    scale: 1.03,
+    x: 10,
     transition: {
       type: 'tween',
       ease: 'easeOut',
@@ -30,7 +30,7 @@ export const StyledRepository = styled(Repository)`
   height: 88px;
   margin: 20px auto;
   max-width: 650px;
-  will-change: auto;
+  will-change: transform;
 
   grid-template-areas:
    'logo name name name stars'

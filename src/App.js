@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Searcher from './components/Searcher/Searcher.js';
 import Information from './components/Information/Information.js';
-import Repositories from './components/Repositories/Repositories.js';
+import Repos from './components/Repositories/Repos.js';
 import { GlobalStyle, Wrapper } from './App-style.js';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
       repoLanguage: "",
       repoSize: "",
 
-      isLoaded: false,
+      isLoadedRepos: false,
     }
   }
 
@@ -52,7 +52,7 @@ class App extends Component {
             joinDate: "",
             followers: 0,
             reposNum: 0,
-            isLoaded: false,
+            isLoadedRepos: false,
           })
         }
 
@@ -79,14 +79,14 @@ class App extends Component {
           joinDate: data.created_at,
           followers: data.followers,
           reposNum: data.public_repos,
-          isLoaded: true,
+          isLoadedRepos: true,
         });
         this.getRepos();
       }) 
       .catch(err => {
         this.setState({ 
           login: "",
-          isLoaded: false, 
+          isLoadedRepos: false, 
         });
       })
   }
@@ -105,6 +105,7 @@ class App extends Component {
 
         let reposArray = [];
         let index = 0;
+
         Object.keys(data).forEach(key => {
           reposArray.push({
             id: data[index].id,
@@ -112,28 +113,37 @@ class App extends Component {
             html_url: data[index].html_url,
             description: data[index].description,
             created_at: data[index].created_at,
+            pushed_at: data[index].pushed_at,
             size: data[index].size, 
             stargazers_count: data[index].stargazers_count,
-            language: data[index].language
+            language: data[index].language,
+            forks_count: data[index].forks_count,
+            watchers_count: data[index].watchers_count,
           });
+
           index++;
         })
 
         this.setState({ 
-          isLoaded: true,
+          isLoadedRepos: true,
           repos: reposArray,
         });
+
       })
       .catch(err => {
         this.setState({ 
-          isLoaded: false, 
+          isLoadedRepos: false, 
         });
       })
   }
 
+  
+
   render() {  
-    const { login, fullname, location, company, avatar,
-            joinDate, email, followers, reposNum, repos, isLoaded } = this.state;
+
+    const { login, fullname, location, company, avatar, joinDate,
+            email, followers, reposNum, repos, isLoadedRepos } = this.state;
+
     return (
         <>
           <GlobalStyle/>
@@ -142,7 +152,7 @@ class App extends Component {
               value={login}
               onChange={this.handleInputChange}
               onSubmit={this.getUser}
-              isLoaded={isLoaded}
+              isLoaded={isLoadedRepos}
             />
             <Information
               login={login}
@@ -154,13 +164,13 @@ class App extends Component {
               joinDate={joinDate}
               followers={followers}
               repos={repos}
-              isLoaded={isLoaded}
+              isLoaded={isLoadedRepos}
             />
-            <Repositories
+            <Repos
               login={login}
               reposNum={reposNum}
               repos={repos}
-              isLoaded={isLoaded}
+              isLoaded={isLoadedRepos}
             />
           </Wrapper>
         </>
