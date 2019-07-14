@@ -4,6 +4,7 @@ import posed from 'react-pose';
 export const Wrapper = styled.div`
   grid-area: info;
   min-height: 590px;
+  z-index: 1;
 `;
 
 export const ShowWrapper = posed(Wrapper)({
@@ -48,7 +49,8 @@ export const Login = styled.h3`
   color: #fff;
   border-radius: 8px;
   padding: 2px 5px;
-  transition: all 0.2s ease;
+  transition: transform .2s ease,
+              color .2s ease;
 
   &:hover{
     color: orange;
@@ -142,7 +144,7 @@ export const Avatar = styled.img`
   height: 250px;
   border: 1px solid #fff;
   margin-left: 20px;
-  transition: all 0.2s ease;
+  transition: border-color .2s ease;
 
   &:hover {
     border-color: orange;

@@ -69,14 +69,35 @@ export const Name = styled.div`
   text-align: left;
   font-size: 22px;
   border-top: 2px solid #fff;
-  transition: .2s ease-in-out;
+  transition: padding-left .4s ease-in-out,
+              color .2s ease-in-out,
+              border-color .2s ease-in-out;
+  z-index: 1;
+  position: relative;
 
   ${StyledRepository}:hover & {
-    background: #333;
     color: #fff;
     border-color: orange;
     padding-left: 20px;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    background: #333;
+    z-index: -1;
+    transition: .5s;
+    border-radius: 0 0 50% 50%;
+  }
+
+  ${StyledRepository}:hover &::before {
+    height: 180%;
+  }
+
 `;
 
 export const Stars = styled.div`
@@ -102,6 +123,7 @@ export const Desc = styled.div`
   text-align: left;
   padding: 2px 10px;
   border-bottom: 2px solid #fff;
+  z-index: 1;
 
   ${StyledRepository}:hover & {
     border-color: orange;

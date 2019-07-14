@@ -38,12 +38,33 @@ export const BackButton = styled.button`
   cursor: pointer;
   font-weight: 300;
   border-radius: 5px;
-  transition: all 0.2s ease;
+  transition: transform .2s ease,
+              color .2s ease,
+              background .2s ease,
+              border-color .2s ease;
+
+  z-index: 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    background: ${props => props.background};
+    z-index: -1;
+    transition: .4s;
+  }
+
+  &:hover::before {
+    height: 100%;
+  }
 
   &:hover {
     transform: scale(0.95);
     color: #fff;
-    background: ${props => props.background};
     border-color: ${props => props.border};
   }
 
