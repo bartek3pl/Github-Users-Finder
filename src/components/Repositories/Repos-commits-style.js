@@ -41,7 +41,7 @@ export const BackButton = styled.button`
   transition: transform .2s ease,
               color .2s ease,
               background .2s ease,
-              border-color .2s ease;
+              border .2s ease;
 
   z-index: 0;
   position: relative;

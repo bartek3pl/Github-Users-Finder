@@ -54,6 +54,7 @@ export const Logo = styled.div`
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-color: orange;
@@ -71,7 +72,7 @@ export const Name = styled.div`
   border-top: 2px solid #fff;
   transition: padding-left .4s ease-in-out,
               color .2s ease-in-out,
-              border-color .2s ease-in-out;
+              border .2s ease-in-out;
   z-index: 1;
   position: relative;
 
@@ -109,6 +110,7 @@ export const Stars = styled.div`
   border-right: 2px solid #fff;
   font-size: 32px;
   padding-top: 2px;
+  transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-color: orange;
@@ -124,6 +126,7 @@ export const Desc = styled.div`
   padding: 2px 10px;
   border-bottom: 2px solid #fff;
   z-index: 1;
+  transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-color: orange;
@@ -141,7 +144,7 @@ export const Size = styled.div`
   color: #fff;
   background: #333;
   border-top: 1px solid #fff;
-  transition: .2s ease-in-out; 
+  transition: border .2s ease-in-out; 
 
   ${StyledRepository}:hover & {
     border-right-color: orange;
