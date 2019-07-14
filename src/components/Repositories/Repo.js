@@ -3,7 +3,7 @@ import star from '../../images/star.svg';
 import PropTypes from 'prop-types';
 import { NavLink, Switch, Route } from 'react-router-dom';
 
-import { Wrapper, Element, ElemChild, BackButton } from './Repos-commits-style.js';
+import { Wrapper, Element, ElemChild, BackButton, ButtonWrapper } from './Repos-commits-style.js';
 import { StyledRepository, Logo, Name, Stars, Desc, Size, TinyStar } from './Repo-style.js';
 
 function kbToMb(size) {
@@ -115,7 +115,6 @@ class Repo extends Component {
           <Route path={`/commits${index}`} exact render={() =>
             <> 
               <Wrapper>
-                <NavLink to={"/"}>
 
                   <Element>
                     <ElemChild>Name:</ElemChild>
@@ -172,13 +171,17 @@ class Repo extends Component {
                     {getDate(lastCommitDate)}
                   </Element>
 
-                  <BackButton background={'orange'} border={'orange'}>Back</BackButton>
+                  <ButtonWrapper>
+                    <NavLink to={"/"}>
+                      <BackButton background={'orange'} border={'orange'}>Back</BackButton>
+                    </NavLink>
 
-                </NavLink>
-
-                <a href={`https://github.com/${login}`} target="_blank" rel="noopener noreferrer">
-                  <BackButton background={'#00e80f'} border={'#00e80f'}>Github</BackButton>
-                </a>
+                    {repos[index] && 
+                      <a href={`https://github.com/${login}/${repos[index].name}`} target="_blank" rel="noopener noreferrer">
+                        <BackButton background={'#00e80f'} border={'#00e80f'}>Github</BackButton>
+                      </a>
+                    }
+                  </ButtonWrapper>
   
               </Wrapper>
             </>

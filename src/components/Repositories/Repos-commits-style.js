@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   grid-area: repo;
-  min-width: 500px;
-  max-width: 700px;
+  width: 610px;
   margin-top: 20px;
   margin-left: 40px;
 `;
@@ -11,7 +10,7 @@ export const Wrapper = styled.div`
 export const Element = styled.div`
   display: block;
   margin-top: 2px;
-  margin-right: 20px;
+  margin-right: 40px;
   margin-left: 0px;
   text-align: left;
 `;
@@ -22,12 +21,14 @@ export const ElemChild = styled(Element)`
   margin-right: 8px;
 `;
 
+export const ButtonWrapper = styled.div`
+  margin-right: 40px;
+`;
+
 export const BackButton = styled.button`
   text-transform: uppercase;
   padding: 14px 28px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   outline: none;
   border: 2px solid #555;
   margin-top: 30px;

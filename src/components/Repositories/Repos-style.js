@@ -28,6 +28,7 @@ export const InformationBlock = styled.div`
   border-radius: 8px;
   background: #D3D3D3;
   padding: 30px 0px;
+  margin-bottom: 30px;
 `;
 
 export const Header = styled.h2`

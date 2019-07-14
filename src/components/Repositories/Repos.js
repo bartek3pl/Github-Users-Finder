@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { ShowWrapper, Header, InformationBlock, ShowRepositories } from './Repos-style.js';
 
-
 const RepoTitle = styled.h3`
   margin: 0;
   margin-left: ${props => props.margin};
@@ -25,12 +24,6 @@ function checkLoginLength(login) {
 }
 
 class Repos extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
 
   render() {
          
@@ -49,7 +42,7 @@ class Repos extends Component {
     }
 
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ShowWrapper pose={isLoaded? 'open' : 'closed'}>
           <Header>Repositories</Header>
           <InformationBlock>
