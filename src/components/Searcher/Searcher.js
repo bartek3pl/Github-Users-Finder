@@ -2,7 +2,6 @@ import React from 'react';
 import Form from './Form.js';
 import logo from '../../images/logo.svg';
 import PropTypes from 'prop-types';
-
 import { Header, ShowWrapper, Logo } from './Searcher-style.js';
 
 const Searcher = (props) => {

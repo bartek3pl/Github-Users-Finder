@@ -137,10 +137,7 @@ class App extends Component {
       })
   }
 
-  
-
   render() {  
-
     const { login, fullname, location, company, avatar, joinDate,
             email, followers, reposNum, repos, isLoadedRepos } = this.state;
 

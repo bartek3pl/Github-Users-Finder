@@ -98,7 +98,6 @@ export const Name = styled.div`
   ${StyledRepository}:hover &::before {
     height: 180%;
   }
-
 `;
 
 export const Stars = styled.div`

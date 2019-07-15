@@ -59,4 +59,14 @@ export const ShowRepositories = posed.div({
   }
 })
 
+export const RepoTitle = styled.h3`
+  margin: 0;
+  margin-left: ${props => props.margin};
+  padding: 0;
+  font-weight: ${props => props.weight};
+  font-size: 26px;
+  text-transform: uppercase;
+  text-align: left;
+`;
+
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import star from '../../images/star.svg';
 import PropTypes from 'prop-types';
 import { NavLink, Switch, Route } from 'react-router-dom';
-
 import { Wrapper, Element, ElemChild, BackButton, ButtonWrapper } from './Repos-commits-style.js';
 import { StyledRepository, Logo, Name, Stars, Desc, Size, TinyStar } from './Repo-style.js';
 
@@ -70,8 +69,7 @@ class Repo extends Component {
         this.setState({ 
           isLoadedCommits: false  
         });
-      })
-      
+      })      
   }
 
   render() {
@@ -79,116 +77,111 @@ class Repo extends Component {
     const { lastCommitDate, lastCommitDesc } = this.state;
 
     return (
-      <>
-        <Switch>
-
-          <Route path={`/`} exact render={() =>
-            <> 
-              {this._isMounted && 
-                <NavLink to={`/commits${index}`} onClick={this.getCommit}>
-                  <StyledRepository>
-                    <Logo>
-                      {repos[index] && repos[index].language}
-                    </Logo>
-                    <Name>
-                      {repos[index] && textShrink(repos[index].name, "name")}
-                    </Name>
-                    <Stars>
-                      <TinyStar src={star} alt="stars"/>
-                      <span style={{marginLeft: '8px'}}>{repos[index] && repos[index].stargazers_count}</span>
-                    </Stars>
-                    <Desc>
-                      {repos[index] && textShrink(repos[index].description, "desc")}
-                    </Desc>
-                    <Size>
-                      {repos[index] && <>
-                        {kbToMb(repos[index].size)} 
-                        {<span style={{fontSize: '14px'}}> {" mb"}</span>}
-                      </>}
-                    </Size>
-                  </StyledRepository>
-                </NavLink>
-              }
-            </>
-          }/>
-          
-          <Route path={`/commits${index}`} exact render={() =>
-            <> 
-              <Wrapper>
-
-                  <Element>
-                    <ElemChild>Name:</ElemChild>
-                    {repos[index] && repos[index].name}
-                  </Element>
-
-                  <Element>
-                    <ElemChild>Description:</ElemChild>
-                    {repos[index] && repos[index].description} 
-                  </Element>
-
-                  <Element>
-                    <ElemChild>Language:</ElemChild>
+      <Switch>
+        <Route path={`/`} exact render={() =>
+          <> 
+            {this._isMounted && 
+              <NavLink to={`/commits${index}`} onClick={this.getCommit}>
+                <StyledRepository>
+                  <Logo>
                     {repos[index] && repos[index].language}
-                  </Element>
+                  </Logo>
+                  <Name>
+                    {repos[index] && textShrink(repos[index].name, "name")}
+                  </Name>
+                  <Stars>
+                    <TinyStar src={star} alt="stars"/>
+                    <span style={{marginLeft: '8px'}}>{repos[index] && repos[index].stargazers_count}</span>
+                  </Stars>
+                  <Desc>
+                    {repos[index] && textShrink(repos[index].description, "desc")}
+                  </Desc>
+                  <Size>
+                    {repos[index] && <>
+                      {kbToMb(repos[index].size)} 
+                      {<span style={{fontSize: '14px'}}> {" mb"}</span>}
+                    </>}
+                  </Size>
+                </StyledRepository>
+              </NavLink>
+            }
+          </>
+        }/>
+          
+        <Route path={`/commits${index}`} exact render={() =>
+          <> 
+            <Wrapper>
+                <Element>
+                  <ElemChild>Name:</ElemChild>
+                  {repos[index] && repos[index].name}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Stars:</ElemChild>
-                    {repos[index] && repos[index].stargazers_count}
-                  </Element>
+                <Element>
+                  <ElemChild>Description:</ElemChild>
+                  {repos[index] && repos[index].description} 
+                </Element>
 
-                  <Element>
-                    <ElemChild>Watchers:</ElemChild>
-                    {repos[index] && repos[index].watchers_count}
-                  </Element>
+                <Element>
+                  <ElemChild>Language:</ElemChild>
+                  {repos[index] && repos[index].language}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Forks:</ElemChild>
-                    {repos[index] && repos[index].forks_count}
-                  </Element>
+                <Element>
+                  <ElemChild>Stars:</ElemChild>
+                  {repos[index] && repos[index].stargazers_count}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Size:</ElemChild>
-                    {repos[index] && <> {kbToMb(repos[index].size)} {" mb"} </>}
-                  </Element>
+                <Element>
+                  <ElemChild>Watchers:</ElemChild>
+                  {repos[index] && repos[index].watchers_count}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Created at:</ElemChild>
-                    {repos[index] && getDate(repos[index].created_at)}
-                  </Element>
+                <Element>
+                  <ElemChild>Forks:</ElemChild>
+                  {repos[index] && repos[index].forks_count}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Pushed at:</ElemChild>
-                    {repos[index] && getDate(repos[index].pushed_at)}
-                  </Element>
+                <Element>
+                  <ElemChild>Size:</ElemChild>
+                  {repos[index] && <> {kbToMb(repos[index].size)} {" mb"} </>}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Last commit description:</ElemChild>
-                    {lastCommitDesc}
-                  </Element>
+                <Element>
+                  <ElemChild>Created at:</ElemChild>
+                  {repos[index] && getDate(repos[index].created_at)}
+                </Element>
 
-                  <Element>
-                    <ElemChild>Last commit date:</ElemChild>
-                    {getDate(lastCommitDate)}
-                  </Element>
+                <Element>
+                  <ElemChild>Pushed at:</ElemChild>
+                  {repos[index] && getDate(repos[index].pushed_at)}
+                </Element>
 
-                  <ButtonWrapper>
-                    <NavLink to={"/"}>
-                      <BackButton background={'orange'} border={'orange'}>Back</BackButton>
-                    </NavLink>
+                <Element>
+                  <ElemChild>Last commit description:</ElemChild>
+                  {lastCommitDesc}
+                </Element>
 
-                    {repos[index] && 
-                      <a href={`https://github.com/${login}/${repos[index].name}`} target="_blank" rel="noopener noreferrer">
-                        <BackButton background={'#00e80f'} border={'#00e80f'}>Github</BackButton>
-                      </a>
-                    }
-                  </ButtonWrapper>
-  
+                <Element>
+                  <ElemChild>Last commit date:</ElemChild>
+                  {getDate(lastCommitDate)}
+                </Element>
+
+                <ButtonWrapper>
+                  <NavLink to={"/"}>
+                    <BackButton background={'orange'} border={'orange'}>Back</BackButton>
+                  </NavLink>
+
+                  {repos[index] && 
+                    <a href={`https://github.com/${login}/${repos[index].name}`} target="_blank" rel="noopener noreferrer">
+                      <BackButton background={'#00e80f'} border={'#00e80f'}>Github</BackButton>
+                    </a>
+                  }
+                </ButtonWrapper>
+
               </Wrapper>
             </>
           }/>
-
         </Switch>
-      </>
     );
   }
 }

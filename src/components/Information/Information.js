@@ -4,10 +4,9 @@ import heart from '../../images/like.svg';
 import star from '../../images/star.svg';
 import user from '../../images/user.png';
 import PropTypes from 'prop-types';
-
 import { ShowWrapper, Header, InformationBlock, Info,
-BasicInfo, Login, BasicInfoWrapper, ShowAvatar,
-InfoIcon, ShowInformation, ShowStats, ShowMoreInfo } from './Information-style.js';
+         BasicInfo, Login, BasicInfoWrapper, ShowAvatar,
+         InfoIcon, ShowInformation, ShowStats, ShowMoreInfo } from './Information-style.js';
 
 function getDate(date) {
   let newDate = date.split("");
