@@ -38,38 +38,39 @@ class App extends Component {
   getUser = async e => {
     e.preventDefault();
     const baseURL = `https://api.github.com/users/${this.state.login}`;
-
-    const res = await fetch(baseURL);
-
-    if(res.status !== 200) {
-      let errMessage = `${res.status} ${res.statusText}`;
-
-      this.setState({
-        avatar: "",
-        fullname: "",
-        location: "",
-        email: "",
-        company: "",
-        joinDate: "",
-        followers: 0,
-        reposNum: 0,
-        isLoadedRepos: false,
-      })
-
-      if(res.status === 404) {
-        console.log("User is not found");
-      }
-
-      if(res.status === 403) {
-        console.log("Query limit exceeded");
-      }
-
-      throw Error(errMessage);
-    }
-    
-    const data = await res.json();
+    let errMessage;
 
     try {
+      const res = await fetch(baseURL);
+
+      if(res.status !== 200) {
+        errMessage = `${res.status} ${res.statusText}`;
+
+        this.setState({
+          avatar: "",
+          fullname: "",
+          location: "",
+          email: "",
+          company: "",
+          joinDate: "",
+          followers: 0,
+          reposNum: 0,
+          isLoadedRepos: false,
+        })
+
+        if(res.status === 404) {
+          console.log("User is not found");
+        }
+
+        if(res.status === 403) {
+          console.log("Query limit exceeded");
+        }
+
+        return;
+      }
+
+      const data = await res.json();
+
       this.setState({ 
         avatar: data.avatar_url,
         fullname: data.name,
@@ -83,29 +84,31 @@ class App extends Component {
       });
   
       this.getRepos();
-    } 
-    catch(err) {
+    }
+    catch (err) {
       this.setState({ 
         login: "",
         isLoadedRepos: false, 
       });
-      console.error(err);
-    };
+
+      console.error(errMessage);
+    } 
   }
 
   async getRepos() {
     const baseURL = `https://api.github.com/users/${this.state.login}/repos`;
-    
-    const res = await fetch(baseURL);
-    
-    if (res.status !== 200) {
-        let errMessage = `${res.status} ${res.statusText}`;
-        throw Error(errMessage);
-    }
-
-    const data = await res.json();
+    let errMessage;
 
     try {
+      const res = await fetch(baseURL);
+
+      if (res.status !== 200) {
+        errMessage = `${res.status} ${res.statusText}`;
+        return;
+      }
+
+      const data = await res.json();
+
       let reposArray = [];
       let index = 0;
 
@@ -131,12 +134,13 @@ class App extends Component {
         isLoadedRepos: true,
         repos: reposArray,
       });
-    }
-    catch(err) {
+
+    } catch (err) {
       this.setState({ 
         isLoadedRepos: false, 
       });
-      console.error(err);
+
+      console.error(errMessage);
     }
   }
 

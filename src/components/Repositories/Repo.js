@@ -56,30 +56,33 @@ class Repo extends Component {
   getCommit = async () => {
     const index = this.props.index;
     const baseURL = `https://api.github.com/repos/${this.props.login}/${this.props.repos[index].name}/commits`;
-
-    const res = await fetch(baseURL);
-
-    if (res.status !== 200) {
-        let errMessage = `${res.status} ${res.statusText}`;
-        throw Error(errMessage);
-    }
-
-    const data = await res.json();
+    let errMessage;
 
     try {
+      const res = await fetch(baseURL);
+
+      if (res.status !== 200) {
+        errMessage = `${res.status} ${res.statusText}`;
+        return;
+      }
+
+      const data = await res.json();
+
       this._isMounted && this.setState({ 
         isLoadedCommits: true,
         lastCommitDate: data[0].commit.author.date,
         lastCommitDesc: data[0].commit.message,
       });
+
       console.log(`${data[0].commit.author.date} ${data[0].commit.message}`);
     }
     catch(err) {
       this.setState({ 
         isLoadedCommits: false  
       });
-      console.error(err);
-    }   
+
+      console.error(errMessage);
+    }  
   }
 
   render() {
