@@ -4,13 +4,13 @@ import heart from '../../images/like.svg';
 import star from '../../images/star.svg';
 import user from '../../images/user.png';
 import PropTypes from 'prop-types';
+
 import { ShowWrapper, Header, InformationBlock, Info,
          BasicInfo, Login, BasicInfoWrapper, ShowAvatar,
-         InfoIcon, ShowInformation, ShowStats, ShowMoreInfo } from './Information-style.js';
+         InfoIcon, ShowInformation, ShowStats, ShowMoreInfo } from './Information.style.js';
 
 function getDate(date) {
-  let newDate = date.split("");
-  newDate = newDate.slice(0,10);
+  let newDate = date.split("").slice(0, 10);
   return newDate.join("");
 }
 
@@ -22,24 +22,24 @@ function checkFollowersAmount(data) {
 
 function countTotalAmountOfStars(data) {
   let amount = 0;
-  for(let index = 0; index < data.length; index++) {
+  for(let index = 0; index < data.length; ++index) {
     amount += data[index].stargazers_count;
   }
   return amount;
 }
 
 function checkFavouriteLanguage(data) {
-  let languages = [];
+  const languages = [];
   let maxNumber = 1; 
   let modeMap = {}; 
 
-  for(let index = 0; index < data.length; index++) {
+  for(let index = 0; index < data.length; ++index) {
     languages.push(data[index].language);
   }
 
   let maxElement = languages[0];
 
-  for(let index = 0; index < languages.length; index++) {
+  for(let index = 0; index < languages.length; ++index) {
     if(modeMap[languages[index]] == null) {
       modeMap[languages[index]] = 1;
     } else {
@@ -56,20 +56,25 @@ function checkFavouriteLanguage(data) {
 }
 
 function checkLoginLength(login) {
-  if(login && login.length >= 15) {
-    return login.slice(0, 15) + "...";
+  const maxLoginLength = 15;
+  
+  if(login && login.length >= maxLoginLength) {
+    const loginToDisplay = login.slice(0, maxLoginLength);
+    return `${loginToDisplay}...`;
   }
   return login;
 }
 
-const Information = (props) => {
+const Information = props => {
+  const userURL = `https://github.com/${props.login}`;
+
   return (  
     <ShowWrapper pose={props.isLoaded? 'open' : 'closed'}>
       <Header>Information</Header>
 
       <InformationBlock>
         <Info>
-          <a href={`https://github.com/${props.login}`} target="_blank" rel="noopener noreferrer">
+          <a href={userURL} target="_blank" rel="noopener noreferrer">
             <ShowAvatar
               pose={props.isLoaded? 'open' : 'closed'}
               src={props.avatar? props.avatar : user} 
@@ -77,7 +82,7 @@ const Information = (props) => {
             /> 
           </a>   
           <BasicInfoWrapper>
-            <Login as="a" href={`https://github.com/${props.login}`} target="_blank" rel="noreferrer">
+            <Login as="a" href={userURL} target="_blank" rel="noreferrer">
               {props.login && checkLoginLength(props.login)}
             </Login>
             <ShowInformation pose={props.isLoaded? 'open' : 'closed'}>
@@ -122,10 +127,8 @@ const Information = (props) => {
             <InfoIcon src={friends} alt="friends"/>
             {checkFollowersAmount(props.followers)}
           </ShowStats>    
-        </ShowMoreInfo>
-       
+        </ShowMoreInfo>      
       </InformationBlock>  
-
     </ShowWrapper>
   );
 }

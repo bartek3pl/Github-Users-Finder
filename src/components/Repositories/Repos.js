@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 import Repo from './Repo.js';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ShowWrapper, Header, InformationBlock, ShowRepositories, RepoTitle } from './Repos-style.js';
+
+import { ShowWrapper, Header, InformationBlock, ShowRepositories, RepoTitle } from './Repos.style.js';
 
 function checkLoginLength(login) {
-  if(login && login.length >= 20) {
-    return login.slice(0, 20) + "...";
+  const maxLoginLength = 15;
+  
+  if(login && login.length >= maxLoginLength) {
+    const loginToDisplay = login.slice(0, maxLoginLength);
+    return `${loginToDisplay}...`;
   }
   return login;
 }
 
 class Repos extends Component {
-
   render() {         
     const { login, reposNum, repos, isLoaded } = this.props;
+    const Repos = [];
 
-    let Repos = [];
     for(let i = 0; i < reposNum; ++i) {
       Repos.push( 
           <Repo 

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledInput } from './Form-style.js';
 
-const Form = (props) => {
+import { StyledInput } from './Form.style.js';
+
+const Form = props => {
   return (  
     <form onSubmit={props.onSubmit}>
       <StyledInput 

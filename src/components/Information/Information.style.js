@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
+import colors from '../../App.colors';
+
 export const Wrapper = styled.div`
   grid-area: info;
   min-height: 590px;
   z-index: 1;
 `;
 
-export const ShowWrapper = posed(Wrapper)({
+export const ShowWrapper = posed(Wrapper) ({
   open: {
     opacity: 1,
     x: 0,
@@ -22,11 +24,11 @@ export const ShowWrapper = posed(Wrapper)({
     opacity: 0,
     x: '-20%',
   }
-})
+});
 
 export const InformationBlock = styled.div`
   border-radius: 8px;
-  background:	#A9A9A9;
+  background:	${colors.informationsBg};
   padding-top: 30px;
 `;
 
@@ -45,14 +47,14 @@ export const Login = styled.h3`
   font-size: 35px;
   font-weight: 600;
   display: inline-block;
-  background: #333;
-  color: #fff;
+  background: ${colors.loginBg};
+  color: ${colors.fontPrimary};
   border-radius: 8px;
   padding: 2px 5px;
   transition: transform .2s ease,
               color .2s ease;
 
-  &:hover{
+  &:hover {
     color: orange;
     transform: translateX(8px);
   }
@@ -73,6 +75,7 @@ export const Stats = styled.h4`
   font-size: 40px;
   display: flex;
   justify-content: center;
+  color: ${colors.fontPrimary};
 
   &:first-child {
     margin-top: 20px;
@@ -83,17 +86,15 @@ export const Stats = styled.h4`
   }
 
   &:nth-child(odd) {
-    background: #555;
-    color: #fff;
+    background: ${colors.infoStatsOdd};
   }
 
   &:nth-child(even) {
-    background: #333;
-    color: #fff;
+    background: ${colors.infoStatsEven};
   }
 `;
 
-export const ShowStats = posed(Stats)({
+export const ShowStats = posed(Stats) ({
   open: {
     delay: 150,
     y: 0,
@@ -104,7 +105,7 @@ export const ShowStats = posed(Stats)({
     y: 20,
     opacity: 0,
   }
-})
+});
 
 export const Info = styled.div`
   display: grid;
@@ -119,7 +120,7 @@ export const BasicInfoWrapper = styled.div`
   margin-left: 25px;
 `;
 
-export const ShowMoreInfo = posed.div({
+export const ShowMoreInfo = posed.div ({
   open: {
     delay: 150,
     delayChildren: 300,
@@ -136,22 +137,22 @@ export const ShowMoreInfo = posed.div({
     opacity: 0,
     delay: 50,
   }
-})
+});
 
 export const Avatar = styled.img`
   display: block;
   width: 250px;
   height: 250px;
-  border: 1px solid #fff;
+  border: 1px solid ${colors.bgPrimary};
   margin-left: 20px;
   transition: border-color .2s ease;
 
   &:hover {
-    border-color: orange;
+    border-color: ${colors.repoLangBg};
   }
 `;
 
-export const ShowAvatar = posed(Avatar)({
+export const ShowAvatar = posed(Avatar) ({
   open: {
     delay: 200,
     opacity: 1,
@@ -160,7 +161,7 @@ export const ShowAvatar = posed(Avatar)({
   closed: {
     opacity: 0,
   },
-})
+});
 
 export const InfoIcon = styled.img`
   display: flex;
@@ -169,7 +170,7 @@ export const InfoIcon = styled.img`
   margin-right: 15px;
 `;
 
-export const ShowInformation = posed(BasicInfo)({
+export const ShowInformation = posed(BasicInfo) ({
   open: {
     delay: 150,
     y: 0,
@@ -186,4 +187,4 @@ export const ShowInformation = posed(BasicInfo)({
     opacity: 0,
     delay: 50,
   }
-})
+});

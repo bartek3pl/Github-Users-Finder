@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import colors from '../../App.colors';
+
 export const Wrapper = styled.div`
   grid-area: repo;
   width: 610px;
@@ -25,16 +27,16 @@ export const ButtonWrapper = styled.div`
   margin-right: 40px;
 `;
 
-export const BackButton = styled.button`
+export const Button = styled.button`
   text-transform: uppercase;
   padding: 14px 28px;
   margin: 10px;
   outline: none;
-  border: 2px solid #555;
+  border: 2px solid ${colors.btBorder};
   margin-top: 30px;
   font-family: "Montserrat";
   font-size: 24px;
-  color: #333;
+  color: ${colors.fontBt};
   cursor: pointer;
   font-weight: 300;
   border-radius: 5px;
@@ -42,7 +44,6 @@ export const BackButton = styled.button`
               color .2s ease,
               background .2s ease,
               border .2s ease;
-
   z-index: 0;
   position: relative;
 
@@ -64,7 +65,7 @@ export const BackButton = styled.button`
 
   &:hover {
     transform: scale(0.95);
-    color: #fff;
+    color: ${colors.fontPrimary};
     border-color: ${props => props.border};
   }
 

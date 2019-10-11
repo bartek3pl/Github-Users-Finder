@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
+import colors from '../../App.colors';
+
 export const Wrapper = styled.div`
   grid-area: repo;
   min-width: 500px;
   max-width: 700px;
 `;
 
-export const ShowWrapper = posed(Wrapper)({
+export const ShowWrapper = posed(Wrapper) ({
   open: {
     opacity: 1,
     x: 0,
@@ -22,11 +24,11 @@ export const ShowWrapper = posed(Wrapper)({
     opacity: 0,
     x: '20%',
   }
-})
+});
 
 export const InformationBlock = styled.div`
   border-radius: 8px;
-  background: #D3D3D3;
+  background: ${colors.repositoriesBg};
   padding: 30px 0px;
   margin-bottom: 30px;
 `;
@@ -40,7 +42,7 @@ export const Header = styled.h2`
   width: 100%;
 `;
 
-export const ShowRepositories = posed.div({
+export const ShowRepositories = posed.div ({
   open: {
     delay: 150,
     x: 0,
@@ -57,12 +59,12 @@ export const ShowRepositories = posed.div({
     opacity: 0,
     delay: 50,
   }
-})
+});
 
 export const RepoTitle = styled.h3`
   margin: 0;
-  margin-left: ${props => props.margin};
   padding: 0;
+  margin-left: ${props => props.margin};
   font-weight: ${props => props.weight};
   font-size: 26px;
   text-transform: uppercase;

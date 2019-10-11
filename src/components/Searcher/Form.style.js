@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-export const Input = posed.input({
+import colors from '../../App.colors';
+
+export const Input = posed.input ({
   focusable: true,
 
   init: {
     scale: 0.95,
     y: 0,
-    outlineColor: '#eee',
+    outlineColor: colors.searcherOutlineBlur,
     transition: {
       type: 'spring',
       stiffness: 500,
@@ -17,21 +19,18 @@ export const Input = posed.input({
   focus: {
     scale: 1,
     y: 10,
-    outlineColor: '#000',
+    outlineColor: colors.searcherOutlineFocus,
     transition: {
       type: 'spring',
       stiffness: 500,
     }
   }
-
 });
 
 export const StyledInput = styled(Input)`
   padding: 6px;
-  outline: none;
   font-size: 36px;
-  border: 1px solid #aaa;
   margin-bottom: 20px;
-  outline: 1px solid #eee;
+  outline: 1px solid ${colors.searcherOutlineBlur};
   will-change: transform;
 `;

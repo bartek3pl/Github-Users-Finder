@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-export const Repository = posed.div({
+import colors from '../../App.colors';
+
+export const Repository = posed.div ({
   hoverable: true,
 
   init: {
@@ -31,22 +33,21 @@ export const StyledRepository = styled(Repository)`
   margin: 20px auto;
   max-width: 650px;
   will-change: transform;
-
   grid-template-areas:
    'logo name name name stars'
    'logo desc desc desc size';
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 20% 20% 20% 20% 20%; 
+  grid-template-rows: repeat(2, 50%);
+  grid-template-columns: repeat(5, 20%); 
   grid-column-gap: 0px;
   justify-content: center;
 `;
 
 export const Logo = styled.div`
   grid-area: logo;
-  background: orange;
+  background: ${colors.repoLangBg};
   border-radius: 8px 0px 0px 8px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid ${colors.repoTitleBg};
+  color: ${colors.fontPrimary};
   text-transform: uppercase;
   font-size: 18px;
   text-align: center;
@@ -57,19 +58,19 @@ export const Logo = styled.div`
   transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
-    border-color: orange;
+    border-color: ${colors.repoLangBg};
   }
 `;
 
 export const Name = styled.div`
   grid-area: name;
-  background: #fff;
+  background: ${colors.repoTitleBg};
   font-weight: 600;
   padding: 8px 10px;
   text-transform: uppercase;
   text-align: left;
   font-size: 22px;
-  border-top: 2px solid #fff;
+  border-top: 2px solid ${colors.repoTitleBg};
   transition: padding-left .4s ease-in-out,
               color .2s ease-in-out,
               border .2s ease-in-out;
@@ -77,8 +78,8 @@ export const Name = styled.div`
   position: relative;
 
   ${StyledRepository}:hover & {
-    color: #fff;
-    border-color: orange;
+    color: ${colors.fontPrimary};
+    border-color: ${colors.repoLangBg};
     padding-left: 20px;
   }
 
@@ -86,68 +87,67 @@ export const Name = styled.div`
     content: "";
     position: absolute;
     left: 0;
-    top: 0;
+    top: 0px;
     width: 100%;
     height: 0%;
-    background: #333;
+    background: ${colors.repoStarsBg};
     z-index: -1;
     transition: .5s;
     border-radius: 0 0 50% 50%;
   }
 
   ${StyledRepository}:hover &::before {
-    height: 180%;
+    height: 190%;
   }
 `;
 
 export const Stars = styled.div`
   grid-area: stars;
-  background: #333;
-  color: #fff;
+  background: ${colors.repoStarsBg};
+  color: ${colors.fontPrimary};
   border-radius: 0px 8px 0px 0px;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
+  border-top: 2px solid ${colors.repoTitleBg};
+  border-right: 2px solid ${colors.repoTitleBg};
   font-size: 32px;
   padding-top: 2px;
   transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
-    border-color: orange;
+    border-color: ${colors.repoLangBg};
   }
 `;
 
 export const Desc = styled.div`
   grid-area: desc;
-  background: #eee;
+  background: ${colors.repoDescBg};
   font-weight: 300;
   font-size: 15px;
   text-align: left;
   padding: 2px 10px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid ${colors.repoTitleBg};
   z-index: 1;
   transition: border .2s ease-in-out;
 
   ${StyledRepository}:hover & {
-    border-color: orange;
+    border-color: ${colors.repoLangBg};
   }
 `;
 
 export const Size = styled.div`
   grid-area: size;
-  background: #aaa;
   padding-top: 5px;
   font-size: 25px;
   border-radius: 0px 0px 8px 0px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  color: #fff;
-  background: #333;
-  border-top: 1px solid #fff;
+  border-right: 2px solid ${colors.repoTitleBg};
+  border-bottom: 2px solid ${colors.repoTitleBg};
+  color: ${colors.fontPrimary};
+  background: ${colors.repoSizeBg};
+  border-top: 1px solid ${colors.repoTitleBg};
   transition: border .2s ease-in-out; 
 
   ${StyledRepository}:hover & {
-    border-right-color: orange;
-    border-bottom-color: orange;
+    border-right-color: ${colors.repoLangBg};
+    border-bottom-color: ${colors.repoLangBg};
   }
 `;
 

@@ -1,27 +1,28 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import colors from './App.colors';
+
 export const GlobalStyle = createGlobalStyle`
+ *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
-    background: #eee;
+    background: ${colors.bgPrimary};
     font-size: 20px;
   }
 
   a {
     text-decoration: none;
-    color: #000;
+    color: ${colors.fontSecondary}
   }
  
-  ::placeholder
-  {
-    color: #ccc;
+  ::placeholder {
+    color: ${colors.fontPlaceholder};
     font-size: 26px;
     font-weight: 300;
-  }
-
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
 `;
 
@@ -31,8 +32,8 @@ export const Wrapper = styled.div`
   grid-template-areas:
    'search search search search'
    'info info repo repo';
-  grid-template-rows: auto auto;
-  grid-template-columns: auto auto 40%;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(2, auto) 40%;
   grid-gap: 5px;
   justify-content: center;
 `;
