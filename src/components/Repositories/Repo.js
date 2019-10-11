@@ -16,24 +16,6 @@ function getDate(date) {
   return newDate.join("");
 }
 
-function textShrink(text, type) {
-  const maxNameLength = 19;
-  const maxDescLength = 72;
-  let textToDisplay;
-
-  if(text !== null && type === "desc" && text.length > maxDescLength) {
-    textToDisplay = text.slice(0, maxDescLength).toString();
-    return `${textToDisplay}...`;
-  }
-
-  if(type === "name" && text.length > maxNameLength) {
-    textToDisplay = text.slice(0, maxNameLength).toString();
-    return `${textToDisplay}...`;
-  }
-
-  return text;
-}
-
 class Repo extends Component {
   constructor(props) {
     super(props);
@@ -104,14 +86,14 @@ class Repo extends Component {
                     {repos[index] && repos[index].language}
                   </Logo>
                   <Name>
-                    {repos[index] && textShrink(repos[index].name, "name")}
+                    {repos[index] && repos[index].name}
                   </Name>
                   <Stars>
                     <TinyStar src={star} alt="stars"/>
                     <span style={{marginLeft: '8px'}}>{repos[index] && repos[index].stargazers_count}</span>
                   </Stars>
                   <Desc>
-                    {repos[index] && textShrink(repos[index].description, "desc")}
+                    {repos[index] && repos[index].description}
                   </Desc>
                   <Size>
                     {repos[index] && <>

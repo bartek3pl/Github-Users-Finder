@@ -76,6 +76,9 @@ export const Name = styled.div`
               border .2s ease-in-out;
   z-index: 1;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   ${StyledRepository}:hover & {
     color: ${colors.fontPrimary};
@@ -127,6 +130,8 @@ export const Desc = styled.div`
   border-bottom: 2px solid ${colors.repoTitleBg};
   z-index: 1;
   transition: border .2s ease-in-out;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
