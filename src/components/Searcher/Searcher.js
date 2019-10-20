@@ -1,27 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Form from './Form.js';
 import logo from '../../images/logo.svg';
 import PropTypes from 'prop-types';
 
 import { Header, ShowWrapper, Logo } from './Searcher.style.js';
 
-const Searcher = props => {
-  const title = 'Github Users Finder';
+class Searcher extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowHeight: window.innerHeight,
+    };
+  }
 
-  return (
-    <ShowWrapper pose={props.isLoaded ? 'open' : 'closed'}>
-      <Logo src={logo} alt="logo" className="logo" />
-      <Header>{title}</Header>
-      <Logo src={logo} alt="logo" className="logo" />
+  componentDidMount() {
+    const windowHeight = window.innerHeight;
+    this.setState({ windowHeight });
+  }
 
-      <Form
-        value={props.value}
-        onChange={props.onChange}
-        onSubmit={props.onSubmit}
-      />
-    </ShowWrapper>
-  );
-};
+  render() {
+    const { isLoaded, value, onChange, onSubmit } = this.props;
+    const { windowHeight } = this.state;
+    const title = 'Github Users Finder';
+    const marginHeight = 100;
+
+    return (
+      <ShowWrapper
+        windowHeight={windowHeight}
+        marginHeight={marginHeight}
+        pose={isLoaded ? 'open' : 'closed'}
+      >
+        <Logo src={logo} alt="logo" className="logo" />
+        <Header>{title}</Header>
+        <Logo src={logo} alt="logo" className="logo" />
+
+        <Form value={value} onChange={onChange} onSubmit={onSubmit} />
+      </ShowWrapper>
+    );
+  }
+}
 
 Searcher.propTypes = {
   value: PropTypes.string,

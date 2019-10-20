@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
+export const Wrapper = styled.div`
+  grid-area: search;
+`;
+
+export const ShowWrapper = posed(Wrapper)({
+  open: {
+    y: 0,
+  },
+
+  closed: {
+    y: ({ windowHeight, marginHeight }) =>
+      `${windowHeight / 2 - marginHeight}px`,
+  },
+});
+
 export const Header = styled.h1`
   font-size: 30px;
   text-transform: uppercase;
@@ -17,17 +32,3 @@ export const Logo = styled.img`
   display: inline-block;
   margin: 0;
 `;
-
-export const Wrapper = styled.div`
-  grid-area: search;
-`;
-
-export const ShowWrapper = posed(Wrapper)({
-  open: {
-    y: 0,
-  },
-
-  closed: {
-    y: '180%',
-  },
-});
