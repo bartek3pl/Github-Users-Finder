@@ -41,6 +41,11 @@ export const Header = styled.h2`
   width: 100%;
 `;
 
+export const LoginWrapper = styled.div`
+  display: inline-flex;
+  max-width: calc(100% - 20px);
+`;
+
 export const Login = styled.h3`
   margin: 0;
   margin-bottom: 5px;
@@ -52,9 +57,11 @@ export const Login = styled.h3`
   border-radius: 8px;
   padding: 2px 5px;
   transition: transform 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
-    color: orange;
+    color: ${colors.repoLangBg};
     transform: translateX(8px);
   }
 `;

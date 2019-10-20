@@ -8,18 +8,9 @@ import {
   Header,
   InformationBlock,
   ShowRepositories,
+  RepoTitleWrapper,
   RepoTitle,
 } from './Repos.style.js';
-
-function checkLoginLength(login) {
-  const maxLoginLength = 15;
-
-  if (login && login.length >= maxLoginLength) {
-    const loginToDisplay = login.slice(0, maxLoginLength);
-    return `${loginToDisplay}...`;
-  }
-  return login;
-}
 
 class Repos extends Component {
   render() {
@@ -36,9 +27,11 @@ class Repos extends Component {
           <Header>Repositories</Header>
           <InformationBlock>
             <RepoTitle weight={'400'} margin={'20px'}>
-              <RepoTitle as="span" weight={'600'} margin={'20px'}>
-                {login ? checkLoginLength(login) : 'User'}
-              </RepoTitle>
+              <RepoTitleWrapper>
+                <RepoTitle as="span" weight={'600'} margin={'20px'}>
+                  {login ? login : 'User'}
+                </RepoTitle>
+              </RepoTitleWrapper>
               {' has'}
               <RepoTitle as="span" weight={'600'} margin={'7px'}>
                 {reposNum}

@@ -61,6 +61,11 @@ export const ShowRepositories = posed.div({
   },
 });
 
+export const RepoTitleWrapper = styled.div`
+  display: inline-flex;
+  max-width: 280px;
+`;
+
 export const RepoTitle = styled.h3`
   margin: 0;
   padding: 0;
@@ -69,4 +74,6 @@ export const RepoTitle = styled.h3`
   font-size: 26px;
   text-transform: uppercase;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

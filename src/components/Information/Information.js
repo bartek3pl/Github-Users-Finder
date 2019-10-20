@@ -11,6 +11,7 @@ import {
   InformationBlock,
   Info,
   BasicInfo,
+  LoginWrapper,
   Login,
   BasicInfoWrapper,
   ShowAvatar,
@@ -31,11 +32,10 @@ function checkFollowersAmount(data) {
 }
 
 function countTotalAmountOfStars(data) {
-  let amount = 0;
-  for (let index = 0; index < data.length; ++index) {
-    amount += data[index].stargazers_count;
-  }
-  return amount;
+  return data.reduce(
+    (acc, _, index) => (acc += data[index].stargazers_count),
+    0
+  );
 }
 
 function checkFavouriteLanguage(data) {
@@ -65,16 +65,6 @@ function checkFavouriteLanguage(data) {
   return maxElement;
 }
 
-function checkLoginLength(login) {
-  const maxLoginLength = 15;
-
-  if (login && login.length >= maxLoginLength) {
-    const loginToDisplay = login.slice(0, maxLoginLength);
-    return `${loginToDisplay}...`;
-  }
-  return login;
-}
-
 const Information = props => {
   const userURL = `https://github.com/${props.login}`;
 
@@ -92,9 +82,11 @@ const Information = props => {
             />
           </a>
           <BasicInfoWrapper>
-            <Login as="a" href={userURL} target="_blank" rel="noreferrer">
-              {props.login && checkLoginLength(props.login)}
-            </Login>
+            <LoginWrapper>
+              <Login as="a" href={userURL} target="_blank" rel="noreferrer">
+                {props.login}
+              </Login>
+            </LoginWrapper>
             <ShowInformation pose={props.isLoaded ? 'open' : 'closed'}>
               <BasicInfo>
                 <span style={{ fontWeight: '400' }}>{props.fullname}</span>
