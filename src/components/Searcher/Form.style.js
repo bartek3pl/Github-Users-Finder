@@ -3,7 +3,7 @@ import posed from 'react-pose';
 
 import colors from '../../App.colors';
 
-export const Input = posed.input ({
+export const Input = posed.input({
   focusable: true,
 
   init: {
@@ -13,7 +13,7 @@ export const Input = posed.input ({
     transition: {
       type: 'spring',
       stiffness: 500,
-    }
+    },
   },
 
   focus: {
@@ -23,8 +23,8 @@ export const Input = posed.input ({
     transition: {
       type: 'spring',
       stiffness: 500,
-    }
-  }
+    },
+  },
 });
 
 export const StyledInput = styled(Input)`

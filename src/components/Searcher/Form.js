@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { StyledInput } from './Form.style.js';
 
 const Form = props => {
-  return (  
+  return (
     <form onSubmit={props.onSubmit}>
-      <StyledInput 
+      <StyledInput
         type="text"
         value={props.value}
         onChange={props.onChange}
@@ -14,11 +14,11 @@ const Form = props => {
       />
     </form>
   );
-}
+};
 
 Form.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-}
- 
+};
+
 export default Form;

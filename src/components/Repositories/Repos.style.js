@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   max-width: 700px;
 `;
 
-export const ShowWrapper = posed(Wrapper) ({
+export const ShowWrapper = posed(Wrapper)({
   open: {
     opacity: 1,
     x: 0,
@@ -17,13 +17,13 @@ export const ShowWrapper = posed(Wrapper) ({
       type: 'tween',
       ease: 'anticipate',
       duration: 500,
-    }
+    },
   },
 
   closed: {
     opacity: 0,
     x: '20%',
-  }
+  },
 });
 
 export const InformationBlock = styled.div`
@@ -42,7 +42,7 @@ export const Header = styled.h2`
   width: 100%;
 `;
 
-export const ShowRepositories = posed.div ({
+export const ShowRepositories = posed.div({
   open: {
     delay: 150,
     x: 0,
@@ -51,14 +51,14 @@ export const ShowRepositories = posed.div ({
       type: 'tween',
       duration: 500,
       ease: 'anticipate',
-    }
+    },
   },
 
   closed: {
     x: '50%',
     opacity: 0,
     delay: 50,
-  }
+  },
 });
 
 export const RepoTitle = styled.h3`
@@ -70,5 +70,3 @@ export const RepoTitle = styled.h3`
   text-transform: uppercase;
   text-align: left;
 `;
-
-

@@ -22,12 +22,12 @@ export const Wrapper = styled.div`
   grid-area: search;
 `;
 
-export const ShowWrapper = posed(Wrapper) ({
+export const ShowWrapper = posed(Wrapper)({
   open: {
     y: 0,
   },
 
   closed: {
     y: '180%',
-  }
+  },
 });

@@ -3,7 +3,7 @@ import posed from 'react-pose';
 
 import colors from '../../App.colors';
 
-export const Repository = posed.div ({
+export const Repository = posed.div({
   hoverable: true,
 
   init: {
@@ -11,8 +11,8 @@ export const Repository = posed.div ({
     transition: {
       type: 'tween',
       ease: 'easeOut',
-      duration: 150
-    }
+      duration: 150,
+    },
   },
 
   hover: {
@@ -20,8 +20,8 @@ export const Repository = posed.div ({
     transition: {
       type: 'tween',
       ease: 'easeOut',
-      duration: 150
-    }
+      duration: 150,
+    },
   },
 });
 
@@ -34,10 +34,10 @@ export const StyledRepository = styled(Repository)`
   max-width: 650px;
   will-change: transform;
   grid-template-areas:
-   'logo name name name stars'
-   'logo desc desc desc size';
+    'logo name name name stars'
+    'logo desc desc desc size';
   grid-template-rows: repeat(2, 50%);
-  grid-template-columns: repeat(5, 20%); 
+  grid-template-columns: repeat(5, 20%);
   grid-column-gap: 0px;
   justify-content: center;
 `;
@@ -55,7 +55,7 @@ export const Logo = styled.div`
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  transition: border .2s ease-in-out;
+  transition: border 0.2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
@@ -71,9 +71,8 @@ export const Name = styled.div`
   text-align: left;
   font-size: 22px;
   border-top: 2px solid ${colors.repoTitleBg};
-  transition: padding-left .4s ease-in-out,
-              color .2s ease-in-out,
-              border .2s ease-in-out;
+  transition: padding-left 0.4s ease-in-out, color 0.2s ease-in-out,
+    border 0.2s ease-in-out;
   z-index: 1;
   position: relative;
   overflow: hidden;
@@ -87,7 +86,7 @@ export const Name = styled.div`
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0px;
@@ -95,7 +94,7 @@ export const Name = styled.div`
     height: 0%;
     background: ${colors.repoStarsBg};
     z-index: -1;
-    transition: .5s;
+    transition: 0.5s;
     border-radius: 0 0 50% 50%;
   }
 
@@ -113,7 +112,7 @@ export const Stars = styled.div`
   border-right: 2px solid ${colors.repoTitleBg};
   font-size: 32px;
   padding-top: 2px;
-  transition: border .2s ease-in-out;
+  transition: border 0.2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
@@ -129,7 +128,7 @@ export const Desc = styled.div`
   padding: 2px 10px;
   border-bottom: 2px solid ${colors.repoTitleBg};
   z-index: 1;
-  transition: border .2s ease-in-out;
+  transition: border 0.2s ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -148,7 +147,7 @@ export const Size = styled.div`
   color: ${colors.fontPrimary};
   background: ${colors.repoSizeBg};
   border-top: 1px solid ${colors.repoTitleBg};
-  transition: border .2s ease-in-out; 
+  transition: border 0.2s ease-in-out;
 
   ${StyledRepository}:hover & {
     border-right-color: ${colors.repoLangBg};

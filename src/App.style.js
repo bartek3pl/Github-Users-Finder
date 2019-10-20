@@ -30,8 +30,8 @@ export const Wrapper = styled.div`
   text-align: center;
   display: grid;
   grid-template-areas:
-   'search search search search'
-   'info info repo repo';
+    'search search search search'
+    'info info repo repo';
   grid-template-rows: repeat(2, auto);
   grid-template-columns: repeat(2, auto) 40%;
   grid-gap: 5px;

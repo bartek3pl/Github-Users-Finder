@@ -34,21 +34,19 @@ export const Button = styled.button`
   outline: none;
   border: 2px solid ${colors.btBorder};
   margin-top: 30px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 24px;
   color: ${colors.fontBt};
   cursor: pointer;
   font-weight: 300;
   border-radius: 5px;
-  transition: transform .2s ease,
-              color .2s ease,
-              background .2s ease,
-              border .2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease,
+    border 0.2s ease;
   z-index: 0;
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -56,7 +54,7 @@ export const Button = styled.button`
     height: 0%;
     background: ${props => props.background};
     z-index: -1;
-    transition: .4s;
+    transition: 0.4s;
   }
 
   &:hover::before {

@@ -8,32 +8,32 @@ import { GlobalStyle, Wrapper } from './App.style.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      login: "",
-      avatar: "",
-      fullname: "",
-      location: "",
-      email: "",
-      company: "",
-      joinDate: "",
+    this.state = {
+      login: '',
+      avatar: '',
+      fullname: '',
+      location: '',
+      email: '',
+      company: '',
+      joinDate: '',
       followers: 0,
       reposNum: 0,
-      favLanguage: "",
+      favLanguage: '',
 
       repos: [],
       starsNum: 0,
-      repoLanguage: "",
-      repoSize: "",
+      repoLanguage: '',
+      repoSize: '',
 
       isLoadedRepos: false,
-    }
+    };
   }
 
   handleInputChange = e => {
-    this.setState({ 
-      login: e.target.value 
+    this.setState({
+      login: e.target.value,
     });
-  }
+  };
 
   getUser = async e => {
     e.preventDefault();
@@ -43,27 +43,27 @@ class App extends Component {
     try {
       const res = await fetch(baseURL);
 
-      if(res.status !== 200) {
+      if (res.status !== 200) {
         errMessage = `${res.status} ${res.statusText}`;
 
         this.setState({
-          avatar: "",
-          fullname: "",
-          location: "",
-          email: "",
-          company: "",
-          joinDate: "",
+          avatar: '',
+          fullname: '',
+          location: '',
+          email: '',
+          company: '',
+          joinDate: '',
           followers: 0,
           reposNum: 0,
           isLoadedRepos: false,
-        })
+        });
 
-        if(res.status === 404) {
-          console.log("User is not found");
+        if (res.status === 404) {
+          console.log('User is not found');
         }
 
-        if(res.status === 403) {
-          console.log("Query limit exceeded");
+        if (res.status === 403) {
+          console.log('Query limit exceeded');
         }
 
         return;
@@ -71,7 +71,7 @@ class App extends Component {
 
       const data = await res.json();
 
-      this.setState({ 
+      this.setState({
         avatar: data.avatar_url,
         fullname: data.name,
         location: data.location,
@@ -82,18 +82,17 @@ class App extends Component {
         reposNum: data.public_repos,
         isLoadedRepos: true,
       });
-  
+
       this.getRepos();
-    }
-    catch (err) {
-      this.setState({ 
-        login: "",
-        isLoadedRepos: false, 
+    } catch (err) {
+      this.setState({
+        login: '',
+        isLoadedRepos: false,
       });
 
       console.error(errMessage);
-    } 
-  }
+    }
+  };
 
   async getRepos() {
     const baseURL = `https://api.github.com/users/${this.state.login}/repos`;
@@ -120,7 +119,7 @@ class App extends Component {
           description: data[index].description,
           created_at: data[index].created_at,
           pushed_at: data[index].pushed_at,
-          size: data[index].size, 
+          size: data[index].size,
           stargazers_count: data[index].stargazers_count,
           language: data[index].language,
           forks_count: data[index].forks_count,
@@ -128,58 +127,68 @@ class App extends Component {
         });
 
         ++index;
-      })
+      });
 
-      this.setState({ 
+      this.setState({
         isLoadedRepos: true,
         repos: reposArray,
       });
-
     } catch (err) {
-      this.setState({ 
-        isLoadedRepos: false, 
+      this.setState({
+        isLoadedRepos: false,
       });
 
       console.error(errMessage);
     }
   }
 
-  render() {  
-    const { login, fullname, location, company, avatar, joinDate,
-            email, followers, reposNum, repos, isLoadedRepos } = this.state;
+  render() {
+    const {
+      login,
+      fullname,
+      location,
+      company,
+      avatar,
+      joinDate,
+      email,
+      followers,
+      reposNum,
+      repos,
+      isLoadedRepos,
+    } = this.state;
 
     return (
-        <>
-          <GlobalStyle/>
-          <Wrapper>
-            <Searcher
-              value={login}
-              onChange={this.handleInputChange}
-              onSubmit={this.getUser}
-              isLoaded={isLoadedRepos}
-            />
-            <Information
-              login={login}
-              avatar={avatar}
-              fullname={fullname}
-              location={location}
-              email={email}
-              company={company}
-              joinDate={joinDate}
-              followers={followers}
-              repos={repos}
-              isLoaded={isLoadedRepos}
-            />
-            <Repos
-              login={login}
-              reposNum={reposNum}
-              repos={repos}
-              isLoaded={isLoadedRepos}
-            />
-          </Wrapper>
-        </>
+      <>
+        <GlobalStyle />
+        <Wrapper>
+          <Searcher
+            value={login}
+            onChange={this.handleInputChange}
+            onSubmit={this.getUser}
+            isLoaded={isLoadedRepos}
+          />
+          <Information
+            login={login}
+            avatar={avatar}
+            fullname={fullname}
+            location={location}
+            email={email}
+            company={company}
+            joinDate={joinDate}
+            followers={followers}
+            repos={repos}
+            isLoaded={isLoadedRepos}
+          />
+          <Repos
+            login={login}
+            reposNum={reposNum}
+            repos={repos}
+            isLoaded={isLoadedRepos}
+          />
+        </Wrapper>
+      </>
     );
   }
 }
- 
+
 export default App;

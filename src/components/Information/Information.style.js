@@ -9,26 +9,26 @@ export const Wrapper = styled.div`
   z-index: 1;
 `;
 
-export const ShowWrapper = posed(Wrapper) ({
+export const ShowWrapper = posed(Wrapper)({
   open: {
     opacity: 1,
     x: 0,
     transition: {
       type: 'tween',
       ease: 'anticipate',
-      duration: 500
-    }
+      duration: 500,
+    },
   },
 
   closed: {
     opacity: 0,
     x: '-20%',
-  }
+  },
 });
 
 export const InformationBlock = styled.div`
   border-radius: 8px;
-  background:	${colors.informationsBg};
+  background: ${colors.informationsBg};
   padding-top: 30px;
 `;
 
@@ -51,8 +51,7 @@ export const Login = styled.h3`
   color: ${colors.fontPrimary};
   border-radius: 8px;
   padding: 2px 5px;
-  transition: transform .2s ease,
-              color .2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 
   &:hover {
     color: orange;
@@ -94,7 +93,7 @@ export const Stats = styled.h4`
   }
 `;
 
-export const ShowStats = posed(Stats) ({
+export const ShowStats = posed(Stats)({
   open: {
     delay: 150,
     y: 0,
@@ -104,13 +103,13 @@ export const ShowStats = posed(Stats) ({
   closed: {
     y: 20,
     opacity: 0,
-  }
+  },
 });
 
 export const Info = styled.div`
   display: grid;
   grid-template-columns: 250px 350px;
-  grid-column-gap: 20px; 
+  grid-column-gap: 20px;
   justify-content: center;
 `;
 
@@ -120,7 +119,7 @@ export const BasicInfoWrapper = styled.div`
   margin-left: 25px;
 `;
 
-export const ShowMoreInfo = posed.div ({
+export const ShowMoreInfo = posed.div({
   open: {
     delay: 150,
     delayChildren: 300,
@@ -129,14 +128,14 @@ export const ShowMoreInfo = posed.div ({
     y: 0,
     transition: {
       type: 'spring',
-    }
+    },
   },
 
   closed: {
     y: 50,
     opacity: 0,
     delay: 50,
-  }
+  },
 });
 
 export const Avatar = styled.img`
@@ -145,14 +144,14 @@ export const Avatar = styled.img`
   height: 250px;
   border: 1px solid ${colors.bgPrimary};
   margin-left: 20px;
-  transition: border-color .2s ease;
+  transition: border-color 0.2s ease;
 
   &:hover {
     border-color: ${colors.repoLangBg};
   }
 `;
 
-export const ShowAvatar = posed(Avatar) ({
+export const ShowAvatar = posed(Avatar)({
   open: {
     delay: 200,
     opacity: 1,
@@ -170,7 +169,7 @@ export const InfoIcon = styled.img`
   margin-right: 15px;
 `;
 
-export const ShowInformation = posed(BasicInfo) ({
+export const ShowInformation = posed(BasicInfo)({
   open: {
     delay: 150,
     y: 0,
@@ -179,12 +178,12 @@ export const ShowInformation = posed(BasicInfo) ({
       type: 'tween',
       duration: 500,
       ease: 'anticipate',
-    }
+    },
   },
 
   closed: {
     y: -50,
     opacity: 0,
     delay: 50,
-  }
+  },
 });
