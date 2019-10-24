@@ -165,8 +165,7 @@ class Repo extends Component {
                 <ElemChild>Size:</ElemChild>
                 {repos[index] && (
                   <>
-                    {' '}
-                    {kbToMb(repos[index].size)} {' mb'}{' '}
+                    {kbToMb(repos[index].size)} {' mb'}
                   </>
                 )}
               </Element>
@@ -193,10 +192,7 @@ class Repo extends Component {
 
               <ButtonWrapper>
                 <NavLink to={baseURL}>
-                  <Button
-                    background={colors.repoLangBg}
-                    border={colors.repoLangBg}
-                  >
+                  <Button background={colors.btBack} border={colors.btBack}>
                     Back
                   </Button>
                 </NavLink>

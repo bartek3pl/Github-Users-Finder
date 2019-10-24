@@ -1,29 +1,30 @@
 const colors = {
   fontPrimary: '#fff',
-  fontSecondary: '#000',
-  fontBt: '#333',
-  fontPlaceholder: '#ccc',
+  fontSecondary: '#24292e',
+  fontBt: '#24292e',
+  fontPlaceholder: '#d6d9de',
 
   bgPrimary: '#eee',
 
-  repositoriesBg: '#D3D3D3',
-  informationsBg: '#A9A9A9',
+  searcherOutlineBlur: '#d6d9de',
+  searcherOutlineFocus: '#24292e',
 
-  searcherOutlineBlur: '#eee',
-  searcherOutlineFocus: '#000',
+  loginBg: '#24292e',
 
-  loginBg: '#333',
-
+  infoStatsBorderFst: '#111',
+  infoStatsBorderSnd: '#777',
   infoStatsOdd: '#555',
-  infoStatsEven: '#333',
+  infoStatsEven: '#24292e',
 
-  repoLangBg: 'orange',
+  repoLangBg: '#ffb75e',
   repoTitleBg: '#fff',
-  repoDescBg: '#eee',
-  repoStarsBg: '#333',
-  repoSizeBg: '#333',
+  repoDescBg: '#f6f8fa',
+  repoDescBorderTop: '#d6d9de',
+  repoStarsBg: '#24292e',
+  repoSizeBg: '#24292e',
 
-  btBorder: '#555',
+  btBorder: '#24292e',
+  btBack: 'orange',
   btGithub: '#00e80f',
 };
 

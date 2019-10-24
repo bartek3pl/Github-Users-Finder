@@ -28,22 +28,23 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  position: relative;
+  z-index: 0;
   text-transform: uppercase;
   padding: 14px 28px;
   margin: 10px;
-  outline: none;
-  border: 2px solid ${colors.btBorder};
   margin-top: 30px;
+  outline: none;
+  background: transparent;
+  border: 2px solid ${colors.btBorder};
   font-family: 'Montserrat';
   font-size: 24px;
+  font-weight: 300;
   color: ${colors.fontBt};
   cursor: pointer;
-  font-weight: 300;
   border-radius: 5px;
-  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease,
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease,
     border 0.2s ease;
-  z-index: 0;
-  position: relative;
 
   &::before {
     content: '';
@@ -57,8 +58,24 @@ export const Button = styled.button`
     transition: 0.4s;
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.18);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+
   &:hover::before {
     height: 100%;
+  }
+
+  &:hover::after {
+    opacity: 0.75;
   }
 
   &:hover {
@@ -68,6 +85,10 @@ export const Button = styled.button`
   }
 
   &:active {
-    transform: scale(0.8);
+    transform: scale(0.9);
+  }
+
+  &:active::after {
+    opacity: 0;
   }
 `;

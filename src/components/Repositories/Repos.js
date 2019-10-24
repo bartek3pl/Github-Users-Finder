@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Repo from './Repo.js';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
+import '../../index.scss';
 
 import {
   ShowWrapper,

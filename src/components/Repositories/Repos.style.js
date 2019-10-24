@@ -27,10 +27,21 @@ export const ShowWrapper = posed(Wrapper)({
 });
 
 export const InformationBlock = styled.div`
+  position: relative;
   border-radius: 8px;
-  background: ${colors.repositoriesBg};
   padding: 30px 0px;
   margin-bottom: 30px;
+
+  background-image: linear-gradient(
+    to top,
+    #c4c5c7 0%,
+    #dcdddf 52%,
+    #ebebeb 100%
+  );
+
+  -webkit-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
 `;
 
 export const Header = styled.h2`

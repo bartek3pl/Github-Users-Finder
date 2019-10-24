@@ -40,13 +40,22 @@ export const StyledRepository = styled(Repository)`
   grid-template-columns: repeat(5, 20%);
   grid-column-gap: 0px;
   justify-content: center;
+  border-radius: 8px;
+
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
 `;
 
 export const Logo = styled.div`
   grid-area: logo;
-  background: ${colors.repoLangBg};
+
+  background: #ffb75e;
+  background: -webkit-linear-gradient(to top, orange, #ffb75e);
+  background: linear-gradient(to top, orange, #ffb75e);
+
   border-radius: 8px 0px 0px 8px;
-  border: 2px solid ${colors.repoTitleBg};
+  border: 2px solid linear-gradient(to top, orange, #ffb75e);
   color: ${colors.fontPrimary};
   text-transform: uppercase;
   font-size: 18px;
@@ -71,8 +80,7 @@ export const Name = styled.div`
   text-align: left;
   font-size: 22px;
   border-top: 2px solid ${colors.repoTitleBg};
-  transition: padding-left 0.4s ease-in-out, color 0.2s ease-in-out,
-    border 0.2s ease-in-out;
+  transition: padding-left 0.2s ease-in, color 0.2s ease-in, border 0.2s ease-in;
   z-index: 1;
   position: relative;
   overflow: hidden;
@@ -89,9 +97,9 @@ export const Name = styled.div`
     content: '';
     position: absolute;
     left: 0;
-    top: 0px;
+    top: 0;
     width: 100%;
-    height: 0%;
+    height: 0;
     background: ${colors.repoStarsBg};
     z-index: -1;
     transition: 0.5s;
@@ -127,7 +135,7 @@ export const Desc = styled.div`
   text-align: left;
   padding: 2px 10px;
   border-bottom: 2px solid ${colors.repoTitleBg};
-  z-index: 1;
+  border-top: 1px solid ${colors.repoDescBorderTop};
   transition: border 0.2s ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -6,7 +6,6 @@ import colors from '../../App.colors';
 export const Wrapper = styled.div`
   grid-area: info;
   min-height: 590px;
-  z-index: 1;
 `;
 
 export const ShowWrapper = posed(Wrapper)({
@@ -27,9 +26,15 @@ export const ShowWrapper = posed(Wrapper)({
 });
 
 export const InformationBlock = styled.div`
+  position: relative;
   border-radius: 8px;
-  background: ${colors.informationsBg};
   padding-top: 30px;
+
+  background-image: linear-gradient(-20deg, #616161 0%, #cbcbcb 100%);
+
+  -webkit-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
 `;
 
 export const Header = styled.h2`
@@ -74,6 +79,7 @@ export const BasicInfo = styled.p`
 `;
 
 export const Stats = styled.h4`
+  position: relative;
   margin: 0px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -82,9 +88,21 @@ export const Stats = styled.h4`
   display: flex;
   justify-content: center;
   color: ${colors.fontPrimary};
+  border-top: 1px solid ${colors.infoStatsBorderFst};
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-top: 1px solid ${colors.infoStatsBorderSnd};
+  }
 
   &:first-child {
     margin-top: 20px;
+    border-top: 0;
   }
 
   &:last-child {
@@ -149,13 +167,9 @@ export const Avatar = styled.img`
   display: block;
   width: 250px;
   height: 250px;
-  border: 1px solid ${colors.bgPrimary};
+  border: 1px solid ${colors.fontPrimary};
   margin-left: 20px;
   transition: border-color 0.2s ease;
-
-  &:hover {
-    border-color: ${colors.repoLangBg};
-  }
 `;
 
 export const ShowAvatar = posed(Avatar)({

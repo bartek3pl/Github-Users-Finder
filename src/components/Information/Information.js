@@ -97,7 +97,7 @@ const Information = props => {
               <BasicInfo>
                 {props.location && (
                   <>
-                    {'Living in '}{' '}
+                    {'Living in '}
                     <span style={{ fontWeight: '400' }}>{props.location}</span>
                   </>
                 )}
@@ -105,7 +105,7 @@ const Information = props => {
               <BasicInfo>
                 {props.joinDate && (
                   <>
-                    {'Joined on '}{' '}
+                    {'Joined on '}
                     <span style={{ fontWeight: '400' }}>
                       {getDate(props.joinDate)}
                     </span>
@@ -115,7 +115,7 @@ const Information = props => {
               <BasicInfo>
                 {props.company && (
                   <>
-                    {'Working in '}{' '}
+                    {'Working in '}
                     <span style={{ fontWeight: '400' }}>{props.company}</span>
                   </>
                 )}
