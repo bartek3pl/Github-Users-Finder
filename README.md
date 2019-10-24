@@ -1,4 +1,4 @@
-# Github User Finder
+# Github Users Finder
 
 ## Just type the username of someone from Github and check out statistics and repositories in a simpler and more convenient form.
 
