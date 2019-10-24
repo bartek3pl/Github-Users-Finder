@@ -22,12 +22,10 @@ class Searcher extends Component {
     const { isLoaded, value, onChange, onSubmit } = this.props;
     const { windowHeight } = this.state;
     const title = 'Github Users Finder';
-    const marginHeight = 100;
 
     return (
       <ShowWrapper
         windowHeight={windowHeight}
-        marginHeight={marginHeight}
         pose={isLoaded ? 'open' : 'closed'}
       >
         <Logo src={logo} alt="logo" className="logo" />

@@ -11,8 +11,7 @@ export const ShowWrapper = posed(Wrapper)({
   },
 
   closed: {
-    y: ({ windowHeight, marginHeight }) =>
-      `${windowHeight / 2 - marginHeight}px`,
+    y: ({ windowHeight }) => `${windowHeight / 2 - 100}px`,
   },
 });
 

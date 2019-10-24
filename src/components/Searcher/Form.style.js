@@ -33,5 +33,4 @@ export const StyledInput = styled(Input)`
   margin-bottom: 20px;
   outline: 1px solid ${colors.searcherOutlineBlur};
   will-change: transform;
-  text-decoration: none;
 `;
