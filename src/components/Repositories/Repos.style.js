@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-import colors from '../../App.colors';
-
 export const Wrapper = styled.div`
   grid-area: repo;
   min-width: 500px;
@@ -28,6 +26,7 @@ export const ShowWrapper = posed(Wrapper)({
 
 export const InformationBlock = styled.div`
   position: relative;
+  min-height: 542px;
   border-radius: 8px;
   padding: 30px 0px;
   margin-bottom: 30px;

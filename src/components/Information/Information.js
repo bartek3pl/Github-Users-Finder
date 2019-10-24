@@ -66,57 +66,69 @@ function checkFavouriteLanguage(data) {
 }
 
 const Information = props => {
+  const {
+    isLoaded,
+    avatar,
+    fullname,
+    login,
+    location,
+    joinDate,
+    company,
+    repos,
+    followers,
+    email,
+  } = props;
   const userURL = `https://github.com/${props.login}`;
 
   return (
-    <ShowWrapper pose={props.isLoaded ? 'open' : 'closed'}>
+    <ShowWrapper pose={isLoaded ? 'open' : 'closed'}>
       <Header>Information</Header>
 
       <InformationBlock>
         <Info>
           <a href={userURL} target="_blank" rel="noopener noreferrer">
             <ShowAvatar
-              pose={props.isLoaded ? 'open' : 'closed'}
-              src={props.avatar ? props.avatar : user}
-              alt={props.fullname}
+              pose={isLoaded ? 'open' : 'closed'}
+              src={avatar ? avatar : user}
+              alt={fullname}
             />
           </a>
           <BasicInfoWrapper>
             <LoginWrapper>
               <Login as="a" href={userURL} target="_blank" rel="noreferrer">
-                {props.login}
+                {login}
               </Login>
             </LoginWrapper>
-            <ShowInformation pose={props.isLoaded ? 'open' : 'closed'}>
+            <ShowInformation pose={isLoaded ? 'open' : 'closed'}>
               <BasicInfo>
-                <span style={{ fontWeight: '400' }}>{props.fullname}</span>
+                <span style={{ fontWeight: '400' }}>{fullname}</span>
               </BasicInfo>
               <BasicInfo>
-                <span style={{ fontWeight: '400' }}>{props.email}</span>
+                <span style={{ fontWeight: '400' }}>{email}</span>
               </BasicInfo>
               <BasicInfo>
-                {props.location && (
+                {location && (
                   <>
                     {'Living in '}
-                    <span style={{ fontWeight: '400' }}>{props.location}</span>
+                    <span style={{ fontWeight: '400' }}>{location}</span>
                   </>
                 )}
               </BasicInfo>
               <BasicInfo>
-                {props.joinDate && (
+                {joinDate && (
                   <>
                     {'Joined on '}
                     <span style={{ fontWeight: '400' }}>
-                      {getDate(props.joinDate)}
+                      {getDate(joinDate)}
                     </span>
                   </>
                 )}
               </BasicInfo>
               <BasicInfo>
-                {props.company && (
+                {company && (
                   <>
                     {'Working in '}
-                    <span style={{ fontWeight: '400' }}>{props.company}</span>
+                    <span style={{ fontWeight: '400' }}>{company}</span>
                   </>
                 )}
               </BasicInfo>
@@ -124,28 +136,28 @@ const Information = props => {
           </BasicInfoWrapper>
         </Info>
 
-        <ShowMoreInfo pose={props.isLoaded ? 'open' : 'closed'}>
+        <ShowMoreInfo pose={isLoaded ? 'open' : 'closed'}>
           <ShowStats>
             <InfoIcon src={heart} alt="heart" />
-            {checkFavouriteLanguage(props.repos)
-              ? checkFavouriteLanguage(props.repos)
+            {checkFavouriteLanguage(repos)
+              ? checkFavouriteLanguage(repos)
               : 'Hard to say :/'}
           </ShowStats>
           <ShowStats>
             <InfoIcon src={star} alt="star" />
-            {countTotalAmountOfStars(props.repos) === 1 ? (
+            {countTotalAmountOfStars(repos) === 1 ? (
               <>
-                {countTotalAmountOfStars(props.repos)} {' star'}
+                {countTotalAmountOfStars(repos)} {' star'}
               </>
             ) : (
               <>
-                {countTotalAmountOfStars(props.repos)} {' stars'}
+                {countTotalAmountOfStars(repos)} {' stars'}
               </>
             )}
           </ShowStats>
           <ShowStats>
             <InfoIcon src={friends} alt="friends" />
-            {checkFollowersAmount(props.followers)}
+            {checkFollowersAmount(followers)}
           </ShowStats>
         </ShowMoreInfo>
       </InformationBlock>

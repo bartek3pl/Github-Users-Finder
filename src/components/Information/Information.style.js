@@ -5,7 +5,6 @@ import colors from '../../App.colors';
 
 export const Wrapper = styled.div`
   grid-area: info;
-  min-height: 590px;
 `;
 
 export const ShowWrapper = posed(Wrapper)({

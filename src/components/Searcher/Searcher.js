@@ -28,9 +28,9 @@ class Searcher extends Component {
         windowHeight={windowHeight}
         pose={isLoaded ? 'open' : 'closed'}
       >
-        <Logo src={logo} alt="logo" className="logo" />
+        <Logo src={logo} alt="logo" />
         <Header>{title}</Header>
-        <Logo src={logo} alt="logo" className="logo" />
+        <Logo src={logo} alt="logo" />
 
         <Form value={value} onChange={onChange} onSubmit={onSubmit} />
       </ShowWrapper>

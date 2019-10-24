@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       login: '',
+      constLogin: '',
       avatar: '',
       fullname: '',
       location: '',
@@ -32,6 +33,13 @@ class App extends Component {
   handleInputChange = e => {
     this.setState({
       login: e.target.value,
+    });
+  };
+
+  handleInputSubmit = e => {
+    this.getUser(e);
+    this.setState({
+      constLogin: this.state.login,
     });
   };
 
@@ -145,6 +153,7 @@ class App extends Component {
   render() {
     const {
       login,
+      constLogin,
       fullname,
       location,
       company,
@@ -164,11 +173,11 @@ class App extends Component {
           <Searcher
             value={login}
             onChange={this.handleInputChange}
-            onSubmit={this.getUser}
+            onSubmit={this.handleInputSubmit}
             isLoaded={isLoadedRepos}
           />
           <Information
-            login={login}
+            login={constLogin}
             avatar={avatar}
             fullname={fullname}
             location={location}
@@ -180,7 +189,7 @@ class App extends Component {
             isLoaded={isLoadedRepos}
           />
           <Repos
-            login={login}
+            login={constLogin}
             reposNum={reposNum}
             repos={repos}
             isLoaded={isLoadedRepos}
