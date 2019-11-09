@@ -3,8 +3,6 @@ import posed from 'react-pose';
 
 export const Wrapper = styled.div`
   grid-area: repo;
-  min-width: 500px;
-  max-width: 700px;
 `;
 
 export const ShowWrapper = posed(Wrapper)({

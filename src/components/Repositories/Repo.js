@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import star from '../../images/star.svg';
 import PropTypes from 'prop-types';
@@ -31,6 +32,10 @@ function getDate(date) {
   return newDate.join('');
 }
 
+function logError(err) {
+  console.error(err);
+}
+
 class Repo extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +43,7 @@ class Repo extends Component {
       isLoadedCommits: false,
       lastCommitDate: '',
       lastCommitDesc: '',
+      totalNumberOfCommits: '',
     };
     this._isMounted = false;
   }
@@ -50,41 +56,49 @@ class Repo extends Component {
     this._isMounted = false;
   }
 
-  getCommit = async () => {
-    const index = this.props.index;
-    const baseURL = `https://api.github.com/repos/${this.props.login}/${this.props.repos[index].name}/commits`;
+  getCommitsInformation = async () => {
+    const { index } = this.props;
+    const commitURL = `https://api.github.com/repos/${this.props.login}/${this.props.repos[index].name}/commits`;
+    const commitStatsURL = `https://api.github.com/repos/${this.props.login}/${this.props.repos[index].name}/stats/contributors`;
     let errMessage;
 
     try {
-      const res = await fetch(baseURL);
+      const commitRes = await fetch(commitURL);
 
-      if (res.status !== 200) {
-        errMessage = `${res.status} ${res.statusText}`;
-        return;
+      if (commitRes.status !== 200) {
+        errMessage = `${commitRes.status} ${commitRes.statusText}`;
+        throw errMessage;
       }
 
-      const data = await res.json();
+      const commitStatsRes = await fetch(commitStatsURL);
+
+      if (commitStatsRes.status !== 200) {
+        errMessage = `${commitStatsRes.status} ${commitStatsRes.statusText}`;
+        throw errMessage;
+      }
+
+      const commitData = await commitRes.json();
+      const commitStatsData = await commitStatsRes.json();
 
       this._isMounted &&
         this.setState({
           isLoadedCommits: true,
-          lastCommitDate: data[0].commit.author.date,
-          lastCommitDesc: data[0].commit.message,
+          lastCommitDate: commitData[0].commit.author.date,
+          lastCommitDesc: commitData[0].commit.message,
+          totalNumberOfCommits: commitStatsData[0].total,
         });
-
-      console.log(`${data[0].commit.author.date} ${data[0].commit.message}`);
     } catch (err) {
       this.setState({
         isLoadedCommits: false,
       });
 
-      console.error(errMessage);
+      logError(err);
     }
   };
 
   render() {
     const { repos, index, login } = this.props;
-    const { lastCommitDate, lastCommitDesc } = this.state;
+    const { lastCommitDate, lastCommitDesc, totalNumberOfCommits } = this.state;
 
     const baseURL = `/`;
     const commitURL = `/${index}`;
@@ -100,7 +114,7 @@ class Repo extends Component {
           render={() => (
             <>
               {this._isMounted && (
-                <NavLink to={commitURL} onClick={this.getCommit}>
+                <NavLink to={commitURL} onClick={this.getCommitsInformation}>
                   <StyledRepository>
                     <Logo>{repos[index] && repos[index].language}</Logo>
                     <Name>{repos[index] && repos[index].name}</Name>
@@ -188,6 +202,11 @@ class Repo extends Component {
               <Element>
                 <ElemChild>Last commit date:</ElemChild>
                 {getDate(lastCommitDate)}
+              </Element>
+
+              <Element>
+                <ElemChild>Total number of commits in last year: </ElemChild>
+                {totalNumberOfCommits}
               </Element>
 
               <ButtonWrapper>

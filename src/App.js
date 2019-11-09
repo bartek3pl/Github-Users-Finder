@@ -6,6 +6,10 @@ import Information from './components/Information/Information.js';
 import Repos from './components/Repositories/Repos.js';
 import { GlobalStyle, Wrapper } from './App.style.js';
 
+function logError(err) {
+  console.error(err);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -75,7 +79,7 @@ class App extends Component {
           console.log('Query limit exceeded');
         }
 
-        return;
+        throw errMessage;
       }
 
       const data = await res.json();
@@ -99,11 +103,11 @@ class App extends Component {
         isLoadedRepos: false,
       });
 
-      console.error(errMessage);
+      logError(err);
     }
   };
 
-  async getRepos() {
+  getRepos = async () => {
     const baseURL = `https://api.github.com/users/${this.state.login}/repos`;
     let errMessage;
 
@@ -112,7 +116,7 @@ class App extends Component {
 
       if (res.status !== 200) {
         errMessage = `${res.status} ${res.statusText}`;
-        return;
+        throw errMessage;
       }
 
       const data = await res.json();
@@ -147,9 +151,9 @@ class App extends Component {
         isLoadedRepos: false,
       });
 
-      console.error(errMessage);
+      logError(err);
     }
-  }
+  };
 
   render() {
     const {

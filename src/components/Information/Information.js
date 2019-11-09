@@ -26,12 +26,12 @@ function getDate(date) {
   return newDate.join('');
 }
 
-function checkFollowersAmount(data) {
+function checkFollowersNumber(data) {
   if (data === 1) return `${data} follower`;
   return `${data} followers`;
 }
 
-function countTotalAmountOfStars(data) {
+function countTotalNumberOfStars(data) {
   return data.reduce(
     (acc, _, index) => (acc += data[index].stargazers_count),
     0
@@ -145,19 +145,19 @@ const Information = props => {
           </ShowStats>
           <ShowStats>
             <InfoIcon src={star} alt="star" />
-            {countTotalAmountOfStars(repos) === 1 ? (
+            {countTotalNumberOfStars(repos) === 1 ? (
               <>
-                {countTotalAmountOfStars(repos)} {' star'}
+                {countTotalNumberOfStars(repos)} {' star'}
               </>
             ) : (
               <>
-                {countTotalAmountOfStars(repos)} {' stars'}
+                {countTotalNumberOfStars(repos)} {' stars'}
               </>
             )}
           </ShowStats>
           <ShowStats>
             <InfoIcon src={friends} alt="friends" />
-            {checkFollowersAmount(followers)}
+            {checkFollowersNumber(followers)}
           </ShowStats>
         </ShowMoreInfo>
       </InformationBlock>

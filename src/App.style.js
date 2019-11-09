@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     background: ${colors.bgPrimary};
     font-size: 20px;
+    overflow-y: scroll;
   }
 
   a {
@@ -30,10 +31,10 @@ export const Wrapper = styled.div`
   text-align: center;
   display: grid;
   grid-template-areas:
-    'search search search search'
-    'info info repo repo';
+    'search search'
+    'info repo';
   grid-template-rows: repeat(2, auto);
-  grid-template-columns: repeat(2, auto) 40%;
+  grid-template-columns: auto 40%;
   grid-gap: 5px;
   justify-content: center;
 `;
