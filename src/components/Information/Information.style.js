@@ -167,8 +167,12 @@ export const Avatar = styled.img`
   width: 250px;
   height: 250px;
   border: 1px solid ${colors.fontPrimary};
+  border-radius: 2px;
   margin-left: 20px;
-  transition: border-color 0.2s ease;
+
+  -webkit-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
 `;
 
 export const ShowAvatar = posed(Avatar)({
