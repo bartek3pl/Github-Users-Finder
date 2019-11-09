@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Searcher from './components/Searcher/Searcher.js';
 import Information from './components/Information/Information.js';
@@ -200,4 +201,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

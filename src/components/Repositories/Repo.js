@@ -87,7 +87,7 @@ class Repo extends Component {
     const { lastCommitDate, lastCommitDesc } = this.state;
 
     const baseURL = `/`;
-    const commitURL = `/commits${index}`;
+    const commitURL = `/${index}`;
     const repoURL = repos[index]
       ? `https://github.com/${login}/${repos[index].name}`
       : `/`;

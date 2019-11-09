@@ -5,9 +5,11 @@ import colors from '../../App.colors';
 
 export const Repository = posed.div({
   hoverable: true,
+  pressable: true,
 
   init: {
     x: 0,
+    scale: 1,
     transition: {
       type: 'tween',
       ease: 'easeOut',
@@ -23,9 +25,18 @@ export const Repository = posed.div({
       duration: 150,
     },
   },
+
+  press: {
+    scale: 0.99,
+    transition: {
+      ease: 'easeInOut',
+      duration: 80,
+    },
+  },
 });
 
 export const StyledRepository = styled(Repository)`
+  position: relative;
   cursor: pointer;
   display: grid;
   width: 86%;
@@ -40,11 +51,25 @@ export const StyledRepository = styled(Repository)`
   grid-template-columns: repeat(5, 20%);
   grid-column-gap: 0px;
   justify-content: center;
-  border-radius: 8px;
 
-  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  &::before {
+    content: '';
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.08s ease-in-out;
+  }
+
+  &:active::before {
+    opacity: 0.4;
+  }
 `;
 
 export const Logo = styled.div`
