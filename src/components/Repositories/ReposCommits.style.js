@@ -4,7 +4,6 @@ import colors from '../../App.colors';
 
 export const Wrapper = styled.div`
   grid-area: repo;
-  width: 610px;
   margin-top: 20px;
   margin-left: 40px;
 `;
