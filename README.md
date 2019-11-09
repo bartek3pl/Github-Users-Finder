@@ -2,7 +2,7 @@
 
 ## Just type the username of someone from Github and check out statistics and repositories in a simpler and more convenient form.
 
-### Try it yourself -> https://bartek3pl.github.io/Github-User-Finder/
+### Try it yourself -> https://bartek3pl.github.io/Github-Users-Finder/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
