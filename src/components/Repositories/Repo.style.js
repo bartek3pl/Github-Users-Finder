@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-import colors from '../../App.colors';
+import colors from '../../app/App.colors';
+import { device } from '../../app/App.devices';
 
 export const Repository = posed.div({
   hoverable: true,
@@ -39,9 +40,6 @@ export const StyledRepository = styled(Repository)`
   position: relative;
   cursor: pointer;
   display: grid;
-  width: 86%;
-  height: 88px;
-  margin: 20px auto;
   max-width: 650px;
   will-change: transform;
   grid-template-areas:
@@ -51,6 +49,36 @@ export const StyledRepository = styled(Repository)`
   grid-template-columns: repeat(5, 20%);
   grid-column-gap: 0px;
   justify-content: center;
+
+  @media ${device.micro} {
+    height: 55px;
+    width: 96%;
+    margin: 8px auto;
+  }
+
+  @media ${device.mobileS} {
+    height: 60px;
+    width: 94%;
+    margin: 10px auto;
+  }
+
+  @media ${device.mobileM} {
+    height: 65px;
+    width: 92%;
+    margin: 10px auto;
+  }
+
+  @media ${device.mobileL} {
+    height: 70px;
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  @media ${device.tablet} {
+    height: 88px;
+    width: 86%;
+    margin: 20px auto;
+  }
 
   &::before {
     content: '';
@@ -83,13 +111,32 @@ export const Logo = styled.div`
   border: 2px solid linear-gradient(to top, orange, #ffb75e);
   color: ${colors.fontPrimary};
   text-transform: uppercase;
-  font-size: 18px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   transition: border 0.2s ease-in-out;
+
+  @media ${device.micro} {
+    font-size: 11px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 12px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 13px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 14px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 18px;
+  }
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
@@ -103,7 +150,6 @@ export const Name = styled.div`
   padding: 8px 10px;
   text-transform: uppercase;
   text-align: left;
-  font-size: 22px;
   border-top: 2px solid ${colors.repoTitleBg};
   transition: padding-left 0.2s ease-in, color 0.2s ease-in, border 0.2s ease-in;
   z-index: 1;
@@ -111,6 +157,26 @@ export const Name = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media ${device.micro} {
+    font-size: 12px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 14px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 16px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 18px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 22px;
+  }
 
   ${StyledRepository}:hover & {
     color: ${colors.fontPrimary};
@@ -143,9 +209,29 @@ export const Stars = styled.div`
   border-radius: 0px 8px 0px 0px;
   border-top: 2px solid ${colors.repoTitleBg};
   border-right: 2px solid ${colors.repoTitleBg};
-  font-size: 32px;
   padding-top: 2px;
   transition: border 0.2s ease-in-out;
+  overflow: hidden;
+
+  @media ${device.micro} {
+    font-size: 18px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 20px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 22px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 24px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 32px;
+  }
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
@@ -156,7 +242,6 @@ export const Desc = styled.div`
   grid-area: desc;
   background: ${colors.repoDescBg};
   font-weight: 300;
-  font-size: 15px;
   text-align: left;
   padding: 2px 10px;
   border-bottom: 2px solid ${colors.repoTitleBg};
@@ -164,6 +249,26 @@ export const Desc = styled.div`
   transition: border 0.2s ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media ${device.micro} {
+    font-size: 10px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 11px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 12px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 13px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 15px;
+  }
 
   ${StyledRepository}:hover & {
     border-color: ${colors.repoLangBg};
@@ -173,7 +278,6 @@ export const Desc = styled.div`
 export const Size = styled.div`
   grid-area: size;
   padding-top: 5px;
-  font-size: 25px;
   border-radius: 0px 0px 8px 0px;
   border-right: 2px solid ${colors.repoTitleBg};
   border-bottom: 2px solid ${colors.repoTitleBg};
@@ -181,6 +285,27 @@ export const Size = styled.div`
   background: ${colors.repoSizeBg};
   border-top: 1px solid ${colors.repoTitleBg};
   transition: border 0.2s ease-in-out;
+  overflow: hidden;
+
+  @media ${device.micro} {
+    font-size: 11px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 12px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 14px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 16px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 25px;
+  }
 
   ${StyledRepository}:hover & {
     border-right-color: ${colors.repoLangBg};
@@ -189,8 +314,31 @@ export const Size = styled.div`
 `;
 
 export const TinyStar = styled.img`
-  width: 31px;
-  height: 31px;
-  padding-top: 9px;
   display: inline-block;
+
+  @media ${device.micro} {
+    width: 15px;
+    padding-top: 4px;
+  }
+
+  @media ${device.mobileS} {
+    width: 17px;
+    padding-top: 5px;
+  }
+
+  @media ${device.mobileM} {
+    width: 19px;
+    padding-top: 6px;
+  }
+
+  @media ${device.mobileL} {
+    width: 21px;
+    padding-top: 7px;
+  }
+
+  @media ${device.tablet} {
+    width: 31px;
+    height: 31px;
+    padding-top: 9px;
+  }
 `;

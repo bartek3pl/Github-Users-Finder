@@ -26,14 +26,14 @@ class Repos extends Component {
         <ShowWrapper pose={isLoaded ? 'open' : 'closed'}>
           <Header>Repositories</Header>
           <InformationBlock>
-            <RepoTitle weight={'400'} margin={'20px'}>
+            <RepoTitle weight={'400'}>
               <RepoTitleWrapper>
-                <RepoTitle as="span" weight={'600'} margin={'20px'}>
+                <RepoTitle as="span" weight={'600'}>
                   {login ? login : 'User'}
                 </RepoTitle>
               </RepoTitleWrapper>
               {' has'}
-              <RepoTitle as="span" weight={'600'} margin={'7px'}>
+              <RepoTitle as="span" weight={'600'}>
                 {reposNum}
               </RepoTitle>
               {reposNum > 0 ? (

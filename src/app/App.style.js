@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 import colors from './App.colors';
+import { device } from './App.devices';
 
 export const GlobalStyle = createGlobalStyle`
  *, *::before, *::after {
@@ -30,11 +31,23 @@ export const GlobalStyle = createGlobalStyle`
 export const Wrapper = styled.div`
   text-align: center;
   display: grid;
-  grid-template-areas:
-    'search search'
-    'info repo';
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: auto 40%;
-  grid-gap: 5px;
   justify-content: center;
+
+  @media ${device.micro} {
+    grid-template-areas:
+      'search'
+      'info'
+      'repo';
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  @media ${device.laptop} {
+    grid-template-areas:
+      'search search'
+      'info repo';
+    grid-template-columns: auto 40%;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 5px;
+  }
 `;

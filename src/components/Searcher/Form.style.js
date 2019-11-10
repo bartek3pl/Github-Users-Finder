@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-import colors from '../../App.colors';
+import colors from '../../app/App.colors';
+import { device } from '../../app/App.devices';
 
 export const Input = posed.input({
   focusable: true,
@@ -29,8 +30,27 @@ export const Input = posed.input({
 
 export const StyledInput = styled(Input)`
   padding: 6px;
-  font-size: 36px;
   margin-bottom: 20px;
   outline: 1px solid ${colors.searcherOutlineBlur};
   will-change: transform;
+
+  @media ${device.micro} {
+    font-size: 22px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 24px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 28px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 30px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 32px;
+  }
 `;

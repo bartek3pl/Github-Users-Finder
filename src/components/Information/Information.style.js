@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-import colors from '../../App.colors';
+import colors from '../../app/App.colors';
+import { device } from '../../app/App.devices';
 
 export const Wrapper = styled.div`
   grid-area: info;
+
+  @media ${device.micro} {
+    width: 100vw;
+  }
+
+  @media ${device.mobileS} {
+    width: 100vw;
+  }
+
+  @media ${device.tablet} {
+    width: auto;
+  }
 `;
 
 export const ShowWrapper = posed(Wrapper)({
@@ -40,9 +53,23 @@ export const Header = styled.h2`
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 300;
-  margin: 0;
-  display: inline-block;
   width: 100%;
+
+  @media ${device.micro} {
+    display: none;
+  }
+
+  @media ${device.mobileS} {
+    display: none;
+  }
+
+  @media ${device.tablet} {
+    display: inline-block;
+  }
+
+  @media ${device.laptop} {
+    margin: 0;
+  }
 `;
 
 export const LoginWrapper = styled.div`
@@ -53,7 +80,6 @@ export const LoginWrapper = styled.div`
 export const Login = styled.h3`
   margin: 0;
   margin-bottom: 5px;
-  font-size: 35px;
   font-weight: 600;
   display: inline-block;
   background: ${colors.loginBg};
@@ -64,6 +90,26 @@ export const Login = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
 
+  @media ${device.micro} {
+    font-size: 18px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 20px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 25px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 30px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 35px;
+  }
+
   &:hover {
     color: ${colors.repoLangBg};
     transform: translateX(8px);
@@ -71,23 +117,69 @@ export const Login = styled.h3`
 `;
 
 export const BasicInfo = styled.p`
-  margin: 0px;
+  margin: 0;
   font-weight: 300;
-  font-size: 22px;
   font-style: normal;
+
+  @media ${device.micro} {
+    font-size: 12px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 13px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 15px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 17px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 22px;
+  }
 `;
 
 export const Stats = styled.h4`
   position: relative;
-  margin: 0px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin: 0;
   font-weight: 400;
-  font-size: 40px;
   display: flex;
   justify-content: center;
   color: ${colors.fontPrimary};
   border-top: 1px solid ${colors.infoStatsBorderFst};
+
+  @media ${device.micro} {
+    font-size: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 26px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 28px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 
   &::after {
     content: '';
@@ -132,15 +224,56 @@ export const ShowStats = posed(Stats)({
 
 export const Info = styled.div`
   display: grid;
-  grid-template-columns: 250px 350px;
   grid-column-gap: 20px;
   justify-content: center;
+
+  @media ${device.micro} {
+    grid-template-columns: 130px auto;
+  }
+
+  @media ${device.mobileS} {
+    grid-template-columns: 130px auto;
+  }
+
+  @media ${device.mobileM} {
+    grid-template-columns: 170px auto;
+  }
+
+  @media ${device.mobileL} {
+    grid-template-columns: 210px auto;
+  }
+
+  @media ${device.tablet} {
+    grid-template-columns: 250px auto;
+  }
 `;
 
 export const BasicInfoWrapper = styled.div`
   display: inline-block;
   text-align: left;
-  margin-left: 25px;
+
+  @media ${device.micro} {
+    padding-left: 0px;
+  }
+
+  @media ${device.mobileS} {
+    padding-left: 0px;
+  }
+
+  @media ${device.mobileM} {
+    padding-left: 5px;
+    padding-right: 0px;
+  }
+
+  @media ${device.mobileL} {
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+
+  @media ${device.tablet} {
+    padding-left: 25px;
+    padding-right: 10px;
+  }
 `;
 
 export const ShowMoreInfo = posed.div({
@@ -164,15 +297,35 @@ export const ShowMoreInfo = posed.div({
 
 export const Avatar = styled.img`
   display: block;
-  width: 250px;
-  height: 250px;
   border: 1px solid ${colors.fontPrimary};
   border-radius: 2px;
-  margin-left: 20px;
 
   -webkit-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
   box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+
+  @media ${device.micro} {
+    width: 130px;
+  }
+
+  @media ${device.mobileS} {
+    width: 130px;
+  }
+
+  @media ${device.mobileM} {
+    width: 170px;
+    margin-left: 5px;
+  }
+
+  @media ${device.mobileL} {
+    width: 210px;
+    margin-left: 10px;
+  }
+
+  @media ${device.tablet} {
+    width: 250px;
+    margin-left: 20px;
+  }
 `;
 
 export const ShowAvatar = posed(Avatar)({
@@ -188,9 +341,32 @@ export const ShowAvatar = posed(Avatar)({
 
 export const InfoIcon = styled.img`
   display: flex;
-  width: 50px;
-  height: 50px;
-  margin-right: 15px;
+
+  @media ${device.micro} {
+    width: 32px;
+    margin-right: 6px;
+  }
+
+  @media ${device.mobileS} {
+    width: 34px;
+    margin-right: 8px;
+  }
+
+  @media ${device.mobileM} {
+    width: 36px;
+    margin-right: 10px;
+  }
+
+  @media ${device.mobileL} {
+    width: 38px;
+    margin-right: 12px;
+  }
+
+  @media ${device.tablet} {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
 `;
 
 export const ShowInformation = posed(BasicInfo)({

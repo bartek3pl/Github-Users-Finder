@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Searcher from './components/Searcher/Searcher.js';
-import Information from './components/Information/Information.js';
-import Repos from './components/Repositories/Repos.js';
+import Searcher from '../components/Searcher/Searcher.js';
+import Information from '../components/Information/Information.js';
+import Repos from '../components/Repositories/Repos.js';
 import { GlobalStyle, Wrapper } from './App.style.js';
 
 function logError(err) {

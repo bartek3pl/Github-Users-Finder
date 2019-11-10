@@ -4,7 +4,7 @@ import star from '../../images/star.svg';
 import PropTypes from 'prop-types';
 import { NavLink, Switch, Route } from 'react-router-dom';
 
-import colors from '../../App.colors';
+import colors from '../../app/App.colors';
 import {
   Wrapper,
   Element,

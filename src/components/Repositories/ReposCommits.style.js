@@ -1,11 +1,31 @@
 import styled from 'styled-components';
 
-import colors from '../../App.colors';
+import colors from '../../app/App.colors';
+import { device } from '../../app/App.devices';
 
 export const Wrapper = styled.div`
   grid-area: repo;
   margin-top: 20px;
-  margin-left: 40px;
+
+  @media ${device.micro} {
+    margin-left: 10px;
+  }
+
+  @media ${device.mobileS} {
+    margin-left: 15px;
+  }
+
+  @media ${device.mobileM} {
+    margin-left: 15px;
+  }
+
+  @media ${device.mobileL} {
+    margin-left: 20px;
+  }
+
+  @media ${device.tablet} {
+    margin-left: 40px;
+  }
 `;
 
 export const Element = styled.div`
@@ -14,6 +34,26 @@ export const Element = styled.div`
   margin-right: 40px;
   margin-left: 0px;
   text-align: left;
+
+  @media ${device.micro} {
+    font-size: 15px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 16px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 17px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 18px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
 `;
 
 export const ElemChild = styled(Element)`
@@ -30,20 +70,43 @@ export const Button = styled.button`
   position: relative;
   z-index: 0;
   text-transform: uppercase;
-  padding: 14px 28px;
   margin: 10px;
   margin-top: 30px;
   outline: none;
   background: transparent;
   border: 2px solid ${colors.btBorder};
   font-family: 'Montserrat';
-  font-size: 24px;
   font-weight: 300;
   color: ${colors.fontBt};
   cursor: pointer;
   border-radius: 5px;
   transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease,
     border 0.2s ease;
+
+  @media ${device.micro} {
+    font-size: 14px;
+    padding: 9px 18px;
+  }
+
+  @media ${device.mobileS} {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 18px;
+    padding: 11px 22px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 24px;
+    padding: 14px 28px;
+  }
 
   &::before {
     content: '';
