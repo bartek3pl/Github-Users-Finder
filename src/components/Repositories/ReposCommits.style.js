@@ -90,12 +90,12 @@ export const Button = styled.button`
 
   @media ${device.mobileS} {
     font-size: 20px;
-    padding: 12px 24px;
+    padding: 10px 20px;
   }
 
   @media ${device.mobileM} {
     font-size: 20px;
-    padding: 12px 24px;
+    padding: 11px 22px;
   }
 
   @media ${device.mobileL} {

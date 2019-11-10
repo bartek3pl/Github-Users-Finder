@@ -51,26 +51,26 @@ export const StyledRepository = styled(Repository)`
   justify-content: center;
 
   @media ${device.micro} {
-    height: 55px;
-    width: 96%;
+    height: 64px;
+    width: 97%;
     margin: 10px auto;
   }
 
   @media ${device.mobileS} {
-    height: 60px;
-    width: 96%;
+    height: 66px;
+    width: 97%;
     margin: 12px auto;
   }
 
   @media ${device.mobileM} {
-    height: 65px;
-    width: 94%;
+    height: 68px;
+    width: 96%;
     margin: 12px auto;
   }
 
   @media ${device.mobileL} {
     height: 70px;
-    width: 92%;
+    width: 94%;
     margin: 15px auto;
   }
 
@@ -158,23 +158,23 @@ export const Name = styled.div`
   white-space: nowrap;
 
   @media ${device.micro} {
-    font-size: 12px;
-    padding: 4px 5px;
+    font-size: 13px;
+    padding: 6px 5px;
   }
 
   @media ${device.mobileS} {
-    font-size: 14px;
-    padding: 5px 6px;
+    font-size: 15px;
+    padding: 6px 6px;
   }
 
   @media ${device.mobileM} {
-    font-size: 16px;
+    font-size: 17px;
     padding: 6px 7px;
   }
 
   @media ${device.mobileL} {
-    font-size: 18px;
-    padding: 7px 8px;
+    font-size: 19px;
+    padding: 6px 8px;
   }
 
   @media ${device.tablet} {
@@ -325,23 +325,23 @@ export const TinyStar = styled.img`
   display: inline-block;
 
   @media ${device.micro} {
-    width: 15px;
-    padding-top: 2px;
-  }
-
-  @media ${device.mobileS} {
     width: 17px;
     padding-top: 3px;
   }
 
-  @media ${device.mobileM} {
+  @media ${device.mobileS} {
     width: 19px;
     padding-top: 4px;
   }
 
-  @media ${device.mobileL} {
+  @media ${device.mobileM} {
     width: 21px;
     padding-top: 5px;
+  }
+
+  @media ${device.mobileL} {
+    width: 23px;
+    padding-top: 6px;
   }
 
   @media ${device.tablet} {
