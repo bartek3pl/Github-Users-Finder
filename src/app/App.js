@@ -71,14 +71,6 @@ class App extends Component {
           isLoadedRepos: false,
         });
 
-        if (res.status === 404) {
-          console.log('User is not found');
-        }
-
-        if (res.status === 403) {
-          console.log('Query limit exceeded');
-        }
-
         throw errMessage;
       }
 

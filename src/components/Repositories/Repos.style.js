@@ -7,32 +7,35 @@ export const Wrapper = styled.div`
   grid-area: repo;
 
   @media ${device.micro} {
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
   }
 
   @media ${device.mobileS} {
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
   }
 
   @media ${device.tablet} {
     min-width: 404px;
     max-width: 700px;
-    width: auto;
   }
 `;
 
 export const ShowWrapper = posed(Wrapper)({
   open: {
+    applyAtStart: { display: 'initial' },
     opacity: 1,
     x: 0,
     transition: {
       type: 'tween',
       ease: 'anticipate',
-      duration: 500,
+      duration: 300,
     },
   },
 
   closed: {
+    applyAtEnd: { display: 'none' },
     opacity: 0,
     x: '20%',
   },
@@ -42,15 +45,6 @@ export const InformationBlock = styled.div`
   position: relative;
   min-height: 542px;
   border-radius: 8px;
-  padding: 30px 0px;
-
-  @media ${device.mobileL} {
-    margin-bottom: 0;
-  }
-
-  @media ${device.tablet} {
-    margin-bottom: 30px;
-  }
 
   background-image: linear-gradient(
     to top,
@@ -62,6 +56,16 @@ export const InformationBlock = styled.div`
   -webkit-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
   box-shadow: 0px 9px 20px -5px rgba(0, 0, 0, 0.6);
+
+  @media ${device.micro} {
+    padding: 20px 0px;
+    margin-bottom: 0px;
+  }
+
+  @media ${device.tablet} {
+    padding: 20px 0px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Header = styled.h2`
@@ -122,29 +126,36 @@ export const RepoTitle = styled.h3`
 
   @media ${device.micro} {
     font-size: 13px;
+    padding-bottom: 5px;
   }
 
   @media ${device.mobileS} {
     font-size: 15px;
+    padding-bottom: 0;
   }
 
   @media ${device.mobileM} {
     font-size: 18px;
+    padding-bottom: 0;
   }
 
   @media ${device.mobileL} {
     font-size: 20px;
+    padding-bottom: 0;
   }
 
   @media ${device.tablet} {
     font-size: 20px;
+    padding-bottom: 0;
   }
 
   @media ${device.laptop} {
     font-size: 22px;
+    padding-bottom: 0;
   }
 
   @media ${device.laptopL} {
     font-size: 26px;
+    padding-bottom: 0;
   }
 `;

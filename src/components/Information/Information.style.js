@@ -16,22 +16,24 @@ export const Wrapper = styled.div`
   }
 
   @media ${device.tablet} {
-    width: auto;
+    width: 600px;
   }
 `;
 
 export const ShowWrapper = posed(Wrapper)({
   open: {
+    applyAtStart: { display: 'initial' },
     opacity: 1,
     x: 0,
     transition: {
       type: 'tween',
       ease: 'anticipate',
-      duration: 500,
+      duration: 300,
     },
   },
 
   closed: {
+    applyAtEnd: { display: 'none' },
     opacity: 0,
     x: '-20%',
   },
