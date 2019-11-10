@@ -53,24 +53,24 @@ export const StyledRepository = styled(Repository)`
   @media ${device.micro} {
     height: 55px;
     width: 96%;
-    margin: 8px auto;
+    margin: 10px auto;
   }
 
   @media ${device.mobileS} {
     height: 60px;
-    width: 94%;
-    margin: 10px auto;
+    width: 96%;
+    margin: 12px auto;
   }
 
   @media ${device.mobileM} {
     height: 65px;
-    width: 92%;
-    margin: 10px auto;
+    width: 94%;
+    margin: 12px auto;
   }
 
   @media ${device.mobileL} {
     height: 70px;
-    width: 90%;
+    width: 92%;
     margin: 15px auto;
   }
 
@@ -147,7 +147,6 @@ export const Name = styled.div`
   grid-area: name;
   background: ${colors.repoTitleBg};
   font-weight: 600;
-  padding: 8px 10px;
   text-transform: uppercase;
   text-align: left;
   border-top: 2px solid ${colors.repoTitleBg};
@@ -160,22 +159,27 @@ export const Name = styled.div`
 
   @media ${device.micro} {
     font-size: 12px;
+    padding: 4px 5px;
   }
 
   @media ${device.mobileS} {
     font-size: 14px;
+    padding: 5px 6px;
   }
 
   @media ${device.mobileM} {
     font-size: 16px;
+    padding: 6px 7px;
   }
 
   @media ${device.mobileL} {
     font-size: 18px;
+    padding: 7px 8px;
   }
 
   @media ${device.tablet} {
     font-size: 22px;
+    padding: 8px 10px;
   }
 
   ${StyledRepository}:hover & {
@@ -243,7 +247,6 @@ export const Desc = styled.div`
   background: ${colors.repoDescBg};
   font-weight: 300;
   text-align: left;
-  padding: 2px 10px;
   border-bottom: 2px solid ${colors.repoTitleBg};
   border-top: 1px solid ${colors.repoDescBorderTop};
   transition: border 0.2s ease-in-out;
@@ -252,22 +255,27 @@ export const Desc = styled.div`
 
   @media ${device.micro} {
     font-size: 10px;
+    padding: 2px 5px;
   }
 
   @media ${device.mobileS} {
     font-size: 11px;
+    padding: 2px 6px;
   }
 
   @media ${device.mobileM} {
     font-size: 12px;
+    padding: 2px 7px;
   }
 
   @media ${device.mobileL} {
     font-size: 13px;
+    padding: 2px 8px;
   }
 
   @media ${device.tablet} {
     font-size: 15px;
+    padding: 2px 10px;
   }
 
   ${StyledRepository}:hover & {
@@ -288,11 +296,11 @@ export const Size = styled.div`
   overflow: hidden;
 
   @media ${device.micro} {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   @media ${device.mobileS} {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   @media ${device.mobileM} {
@@ -318,22 +326,22 @@ export const TinyStar = styled.img`
 
   @media ${device.micro} {
     width: 15px;
-    padding-top: 4px;
+    padding-top: 2px;
   }
 
   @media ${device.mobileS} {
     width: 17px;
-    padding-top: 5px;
+    padding-top: 3px;
   }
 
   @media ${device.mobileM} {
     width: 19px;
-    padding-top: 6px;
+    padding-top: 4px;
   }
 
   @media ${device.mobileL} {
     width: 21px;
-    padding-top: 7px;
+    padding-top: 5px;
   }
 
   @media ${device.tablet} {

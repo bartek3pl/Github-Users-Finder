@@ -84,18 +84,18 @@ export const Button = styled.button`
     border 0.2s ease;
 
   @media ${device.micro} {
-    font-size: 14px;
-    padding: 9px 18px;
-  }
-
-  @media ${device.mobileS} {
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 20px;
   }
 
+  @media ${device.mobileS} {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
   @media ${device.mobileM} {
-    font-size: 18px;
-    padding: 11px 22px;
+    font-size: 20px;
+    padding: 12px 24px;
   }
 
   @media ${device.mobileL} {

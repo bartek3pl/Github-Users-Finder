@@ -25,23 +25,27 @@ export const Header = styled.h1`
   margin-bottom: 0;
 
   @media ${device.micro} {
-    font-size: 18px;
+    font-size: 16px;
     padding: 4px 8px;
+    margin-top: 10px;
   }
 
   @media ${device.mobileS} {
     font-size: 20px;
     padding: 6px 10px;
+    margin-top: 10px;
   }
 
   @media ${device.mobileM} {
     font-size: 22px;
     padding: 8px 12px;
+    margin-top: 10px;
   }
 
   @media ${device.mobileL} {
     font-size: 25px;
     padding: 9px 13px;
+    margin-top: 10px;
   }
 
   @media ${device.tablet} {
@@ -55,19 +59,19 @@ export const Logo = styled.img`
   margin: 0;
 
   @media ${device.micro} {
-    width: 22px;
+    width: 20px;
   }
 
   @media ${device.mobileS} {
-    width: 24px;
+    width: 22px;
   }
 
   @media ${device.mobileM} {
-    width: 26px;
+    width: 24px;
   }
 
   @media ${device.mobileL} {
-    width: 28px;
+    width: 26px;
   }
 
   @media ${device.tablet} {

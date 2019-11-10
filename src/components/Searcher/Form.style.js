@@ -35,19 +35,19 @@ export const StyledInput = styled(Input)`
   will-change: transform;
 
   @media ${device.micro} {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @media ${device.mobileS} {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   @media ${device.mobileM} {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   @media ${device.mobileL} {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   @media ${device.tablet} {
